@@ -7,7 +7,7 @@ Wymaga [CMake](https://cmake.org) w wersji >=3.0 oraz zbudowanej [biblioteki do 
 Windows (MinGW):
 
 ```ps
-cmake -G"MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DGOOGLE_BENCHMARK_INCLUDE_DIR="D:/C++/benchmark-1.2.0/include" -DGOOGLE_BENCHMARK_LIB_DIR="D:/C++/benchmark-1.2.0/src" .
+cmake -G"MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DGOOGLE_BENCHMARK_INCLUDE_DIR="Ścieżka do folderu /include biblioteki" -DGOOGLE_BENCHMARK_LIB_DIR="Ścieżka do folderu ze skompilowaną biblioteką" .
 mingw32-make
 ./RandomGenBenchmark.exe
 ```
