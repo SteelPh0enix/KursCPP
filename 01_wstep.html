@@ -2,14 +2,12 @@
 <html>
 
 <head>
-    <title>Kurs C++ - 01: Wstęp</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kurs C++: 01 - Wstęp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
-
-
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
 
 
 
@@ -18,1074 +16,1200 @@
 
 
 
-    <style>
-        /**
+
+
+  <style>
+    /**
  * prism.js Github theme based on GitHub's theme.
  * @author Sam Clarke
  */
-        
-        code[class*="language-"],
-        pre[class*="language-"] {
-            color: #333;
-            background: none;
-            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            text-align: left;
-            white-space: pre;
-            word-spacing: normal;
-            word-break: normal;
-            word-wrap: normal;
-            line-height: 1.4;
-            -moz-tab-size: 8;
-            -o-tab-size: 8;
-            tab-size: 8;
-            -webkit-hyphens: none;
-            -moz-hyphens: none;
-            -ms-hyphens: none;
-            hyphens: none;
-        }
-        /* Code blocks */
-        
-        pre[class*="language-"] {
-            padding: .8em;
-            overflow: auto;
-            /* border: 1px solid #ddd; */
-            border-radius: 3px;
-            /* background: #fff; */
-            background: #f5f5f5;
-        }
-        /* Inline code */
-        
-        :not(pre)>code[class*="language-"] {
-            padding: .1em;
-            border-radius: .3em;
-            white-space: normal;
-            background: #f5f5f5;
-        }
-        
-        .token.comment,
-        .token.blockquote {
-            color: #969896;
-        }
-        
-        .token.cdata {
-            color: #183691;
-        }
-        
-        .token.doctype,
-        .token.punctuation,
-        .token.variable,
-        .token.macro.property {
-            color: #333;
-        }
-        
-        .token.operator,
-        .token.important,
-        .token.keyword,
-        .token.rule,
-        .token.builtin {
-            color: #a71d5d;
-        }
-        
-        .token.string,
-        .token.url,
-        .token.regex,
-        .token.attr-value {
-            color: #183691;
-        }
-        
-        .token.property,
-        .token.number,
-        .token.boolean,
-        .token.entity,
-        .token.atrule,
-        .token.constant,
-        .token.symbol,
-        .token.command,
-        .token.code {
-            color: #0086b3;
-        }
-        
-        .token.tag,
-        .token.selector,
-        .token.prolog {
-            color: #63a35c;
-        }
-        
-        .token.function,
-        .token.namespace,
-        .token.pseudo-element,
-        .token.class,
-        .token.class-name,
-        .token.pseudo-class,
-        .token.id,
-        .token.url-reference .token.variable,
-        .token.attr-name {
-            color: #795da3;
-        }
-        
-        .token.entity {
-            cursor: help;
-        }
-        
-        .token.title,
-        .token.title .token.punctuation {
-            font-weight: bold;
-            color: #1d3e81;
-        }
-        
-        .token.list {
-            color: #ed6a43;
-        }
-        
-        .token.inserted {
-            background-color: #eaffea;
-            color: #55a532;
-        }
-        
-        .token.deleted {
-            background-color: #ffecec;
-            color: #bd2c00;
-        }
-        
-        .token.bold {
-            font-weight: bold;
-        }
-        
-        .token.italic {
-            font-style: italic;
-        }
-        /* JSON */
-        
-        .language-json .token.property {
-            color: #183691;
-        }
-        
-        .language-markup .token.tag .token.punctuation {
-            color: #333;
-        }
-        /* CSS */
-        
-        code.language-css,
-        .language-css .token.function {
-            color: #0086b3;
-        }
-        /* YAML */
-        
-        .language-yaml .token.atrule {
-            color: #63a35c;
-        }
-        
-        code.language-yaml {
-            color: #183691;
-        }
-        /* Ruby */
-        
-        .language-ruby .token.function {
-            color: #333;
-        }
-        /* Markdown */
-        
-        .language-markdown .token.url {
-            color: #795da3;
-        }
-        /* Makefile */
-        
-        .language-makefile .token.symbol {
-            color: #795da3;
-        }
-        
-        .language-makefile .token.variable {
-            color: #183691;
-        }
-        
-        .language-makefile .token.builtin {
-            color: #0086b3;
-        }
-        /* Bash */
-        
-        .language-bash .token.keyword {
-            color: #0086b3;
-        }
-        /* highlight */
-        
-        pre[data-line] {
-            position: relative;
-            padding: 1em 0 1em 3em;
-        }
-        
-        pre[data-line] .line-highlight-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: transparent;
-            display: block;
-            width: 100%;
-        }
-        
-        pre[data-line] .line-highlight {
-            position: absolute;
-            left: 0;
-            right: 0;
-            padding: inherit 0;
-            margin-top: 1em;
-            background: hsla(24, 20%, 50%, .08);
-            background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
-            pointer-events: none;
-            line-height: inherit;
-            white-space: pre;
-        }
-        
-        pre[data-line] .line-highlight:before,
-        pre[data-line] .line-highlight[data-end]:after {
-            content: attr(data-start);
-            position: absolute;
-            top: .4em;
-            left: .6em;
-            min-width: 1em;
-            padding: 0 .5em;
-            background-color: hsla(24, 20%, 50%, .4);
-            color: hsl(24, 20%, 95%);
-            font: bold 65%/1.5 sans-serif;
-            text-align: center;
-            vertical-align: .3em;
-            border-radius: 999px;
-            text-shadow: none;
-            box-shadow: 0 1px white;
-        }
-        
-        pre[data-line] .line-highlight[data-end]:after {
-            content: attr(data-end);
-            top: auto;
-            bottom: .4em;
-        }
-        
-        html body {
-            font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-            overflow: initial;
-            box-sizing: border-box;
-            word-wrap: break-word
-        }
-        
-        html body>:first-child {
-            margin-top: 0
-        }
-        
-        html body h1,
-        html body h2,
-        html body h3,
-        html body h4,
-        html body h5,
-        html body h6 {
-            line-height: 1.2;
-            margin-top: 1em;
-            margin-bottom: 16px;
-            color: #000
-        }
-        
-        html body h1 {
-            font-size: 2.25em;
-            font-weight: 300;
-            padding-bottom: .3em
-        }
-        
-        html body h2 {
-            font-size: 1.75em;
-            font-weight: 400;
-            padding-bottom: .3em
-        }
-        
-        html body h3 {
-            font-size: 1.5em;
-            font-weight: 500
-        }
-        
-        html body h4 {
-            font-size: 1.25em;
-            font-weight: 600
-        }
-        
-        html body h5 {
-            font-size: 1.1em;
-            font-weight: 600
-        }
-        
-        html body h6 {
-            font-size: 1em;
-            font-weight: 600
-        }
-        
-        html body h1,
-        html body h2,
-        html body h3,
-        html body h4,
-        html body h5 {
-            font-weight: 600
-        }
-        
-        html body h5 {
-            font-size: 1em
-        }
-        
-        html body h6 {
-            color: #5c5c5c
-        }
-        
-        html body strong {
-            color: #000
-        }
-        
-        html body del {
-            color: #5c5c5c
-        }
-        
-        html body a:not([href]) {
-            color: inherit;
-            text-decoration: none
-        }
-        
-        html body a {
-            color: #08c;
-            text-decoration: none
-        }
-        
-        html body a:hover {
-            color: #00a3f5;
-            text-decoration: none
-        }
-        
-        html body img {
-            max-width: 100%
-        }
-        
-        html body>p {
-            margin-top: 0;
-            margin-bottom: 16px;
-            word-wrap: break-word
-        }
-        
-        html body>ul,
-        html body>ol {
-            margin-bottom: 16px
-        }
-        
-        html body ul,
-        html body ol {
-            padding-left: 2em
-        }
-        
-        html body ul.no-list,
-        html body ol.no-list {
-            padding: 0;
-            list-style-type: none
-        }
-        
-        html body ul ul,
-        html body ul ol,
-        html body ol ol,
-        html body ol ul {
-            margin-top: 0;
-            margin-bottom: 0
-        }
-        
-        html body li {
-            margin-bottom: 0
-        }
-        
-        html body li.task-list-item {
-            list-style: none
-        }
-        
-        html body li>p {
-            margin-top: 0;
-            margin-bottom: 0
-        }
-        
-        html body .task-list-item-checkbox {
-            margin: 0 .2em .25em -1.8em;
-            vertical-align: middle
-        }
-        
-        html body .task-list-item-checkbox:hover {
-            cursor: pointer
-        }
-        
-        html body blockquote {
-            margin: 16px 0;
-            font-size: inherit;
-            padding: 0 15px;
-            color: #5c5c5c;
-            border-left: 4px solid #d6d6d6
-        }
-        
-        html body blockquote>:first-child {
-            margin-top: 0
-        }
-        
-        html body blockquote>:last-child {
-            margin-bottom: 0
-        }
-        
-        html body hr {
-            height: 4px;
-            margin: 32px 0;
-            background-color: #d6d6d6;
-            border: 0 none
-        }
-        
-        html body table {
-            margin: 10px 0 15px 0;
-            border-collapse: collapse;
-            border-spacing: 0;
-            display: block;
-            width: 100%;
-            overflow: auto;
-            word-break: normal;
-            word-break: keep-all
-        }
-        
-        html body table th {
-            font-weight: bold;
-            color: #000
-        }
-        
-        html body table td,
-        html body table th {
-            border: 1px solid #d6d6d6;
-            padding: 6px 13px
-        }
-        
-        html body dl {
-            padding: 0
-        }
-        
-        html body dl dt {
-            padding: 0;
-            margin-top: 16px;
-            font-size: 1em;
-            font-style: italic;
-            font-weight: bold
-        }
-        
-        html body dl dd {
-            padding: 0 16px;
-            margin-bottom: 16px
-        }
-        
-        html body code {
-            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-            font-size: .85em !important;
-            color: #000;
-            background-color: #f0f0f0;
-            border-radius: 3px;
-            padding: .2em 0
-        }
-        
-        html body code::before,
-        html body code::after {
-            letter-spacing: -0.2em;
-            content: "\00a0"
-        }
-        
-        html body pre>code {
-            padding: 0;
-            margin: 0;
-            font-size: .85em !important;
-            word-break: normal;
-            white-space: pre;
-            background: transparent;
-            border: 0
-        }
-        
-        html body .highlight {
-            margin-bottom: 16px
-        }
-        
-        html body .highlight pre,
-        html body pre {
-            padding: 1em;
-            overflow: auto;
-            font-size: .85em !important;
-            line-height: 1.45;
-            border: #d6d6d6;
-            border-radius: 3px
-        }
-        
-        html body .highlight pre {
-            margin-bottom: 0;
-            word-break: normal
-        }
-        
-        html body pre code,
-        html body pre tt {
-            display: inline;
-            max-width: initial;
-            padding: 0;
-            margin: 0;
-            overflow: initial;
-            line-height: inherit;
-            word-wrap: normal;
-            background-color: transparent;
-            border: 0
-        }
-        
-        html body pre code:before,
-        html body pre tt:before,
-        html body pre code:after,
-        html body pre tt:after {
-            content: normal
-        }
-        
-        html body p,
-        html body blockquote,
-        html body ul,
-        html body ol,
-        html body dl,
-        html body pre {
-            margin-top: 0;
-            margin-bottom: 16px
-        }
-        
-        html body kbd {
-            color: #000;
-            border: 1px solid #d6d6d6;
-            border-bottom: 2px solid #c7c7c7;
-            padding: 2px 4px;
-            background-color: #f0f0f0;
-            border-radius: 3px
-        }
-        
-        @media print {
-            html body {
-                background-color: #fff
-            }
-            html body h1,
-            html body h2,
-            html body h3,
-            html body h4,
-            html body h5,
-            html body h6 {
-                color: #000;
-                page-break-after: avoid
-            }
-            html body blockquote {
-                color: #5c5c5c
-            }
-            html body pre {
-                page-break-inside: avoid
-            }
-            html body table {
-                display: table
-            }
-            html body img {
-                display: block;
-                max-width: 100%;
-                max-height: 100%
-            }
-            html body pre,
-            html body code {
-                word-wrap: break-word;
-                white-space: pre
-            }
-        }
-        
-        .markdown-preview {
-            width: 100%;
-            height: 100%;
-            box-sizing: border-box
-        }
-        
-        .markdown-preview .pagebreak,
-        .markdown-preview .newpage {
-            page-break-before: always
-        }
-        
-        .markdown-preview pre.line-numbers {
-            position: relative;
-            padding-left: 3.8em;
-            counter-reset: linenumber
-        }
-        
-        .markdown-preview pre.line-numbers>code {
-            position: relative
-        }
-        
-        .markdown-preview pre.line-numbers .line-numbers-rows {
-            position: absolute;
-            pointer-events: none;
-            top: 1em;
-            font-size: 100%;
-            left: 0;
-            width: 3em;
-            letter-spacing: -1px;
-            border-right: 1px solid #999;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none
-        }
-        
-        .markdown-preview pre.line-numbers .line-numbers-rows>span {
-            pointer-events: none;
-            display: block;
-            counter-increment: linenumber
-        }
-        
-        .markdown-preview pre.line-numbers .line-numbers-rows>span:before {
-            content: counter(linenumber);
-            color: #999;
-            display: block;
-            padding-right: .8em;
-            text-align: right
-        }
-        
-        .markdown-preview .mathjax-exps .MathJax_Display {
-            text-align: center !important
-        }
-        
-        .markdown-preview:not([for="preview"]) .code-chunk .btn-group {
-            display: none
-        }
-        
-        .markdown-preview:not([for="preview"]) .code-chunk .status {
-            display: none
-        }
-        
-        .markdown-preview:not([for="preview"]) .code-chunk .output-div {
-            margin-bottom: 16px
-        }
-        
-        .scrollbar-style::-webkit-scrollbar {
-            width: 8px
-        }
-        
-        .scrollbar-style::-webkit-scrollbar-track {
-            border-radius: 10px;
-            background-color: transparent
-        }
-        
-        .scrollbar-style::-webkit-scrollbar-thumb {
-            border-radius: 5px;
-            background-color: rgba(150, 150, 150, 0.66);
-            border: 4px solid rgba(150, 150, 150, 0.66);
-            background-clip: content-box
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode]) {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            margin: 0;
-            padding: 0;
-            overflow: auto
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
-            position: relative;
-            top: 0
-        }
-        
-        @media screen and (min-width:914px) {
-            html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
-                padding: 2em calc(50% - 457px + 2em)
-            }
-        }
-        
-        @media screen and (max-width:914px) {
-            html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
-                padding: 2em
-            }
-        }
-        
-        @media screen and (max-width:450px) {
-            html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
-                font-size: 14px !important;
-                padding: 1em
-            }
-        }
-        
-        @media print {
-            html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
-                display: none
-            }
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
-            position: fixed;
-            bottom: 8px;
-            left: 8px;
-            font-size: 28px;
-            cursor: pointer;
-            color: inherit;
-            z-index: 99;
-            width: 32px;
-            text-align: center;
-            opacity: .4
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
-            opacity: 1
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 300px;
-            height: 100%;
-            padding: 32px 0 48px 0;
-            font-size: 14px;
-            box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
-            box-sizing: border-box;
-            overflow: auto;
-            background-color: inherit
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar {
-            width: 8px
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track {
-            border-radius: 10px;
-            background-color: transparent
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb {
-            border-radius: 5px;
-            background-color: rgba(150, 150, 150, 0.66);
-            border: 4px solid rgba(150, 150, 150, 0.66);
-            background-clip: content-box
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a {
-            text-decoration: none
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
-            padding: 0 1.6em;
-            margin-top: .8em
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li {
-            margin-bottom: .8em
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
-            list-style-type: none
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
-            left: 300px;
-            width: calc(100% - 300px);
-            padding: 2em calc(50% - 457px - 150px);
-            margin: 0;
-            box-sizing: border-box
-        }
-        
-        @media screen and (max-width:1274px) {
-            html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
-                padding: 2em
-            }
-        }
-        
-        @media screen and (max-width:450px) {
-            html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
-                width: 100%
-            }
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
-            left: 50%;
-            transform: translateX(-50%)
-        }
-        
-        html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
-            display: none
-        }
-        
-        .markdown-preview.markdown-preview {
-            left: 0 !important;
-            transform: none !important;
-            font-family: 'Fira Sans', sans-serif;
-            background-color: #222222;
-            color: #aaaaaa;
-        }
-        
-        .markdown-preview.markdown-preview strong {
-            color: #bbbbbb;
-        }
-        
-        .markdown-preview.markdown-preview .media-row {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-        }
-        
-        .markdown-preview.markdown-preview .media-img {
-            height: 40px;
-        }
-        
-        .markdown-preview.markdown-preview h1,
-        .markdown-preview.markdown-preview h2,
-        .markdown-preview.markdown-preview h3,
-        .markdown-preview.markdown-preview h4,
-        .markdown-preview.markdown-preview h5,
-        .markdown-preview.markdown-preview h6 {
-            color: #bbbbbb;
-        }
-        
-        .markdown-preview.markdown-preview a {
-            color: #df6400;
-        }
-        
-        .markdown-preview.markdown-preview footer {
-            font-size: 75%;
-        }
-        
-        .markdown-preview.markdown-preview pre,
-        .markdown-preview.markdown-preview code {
-            font-family: 'Fira Mono', monospace;
-            background-color: #363636;
-            color: #c5c5c5;
-        }
-        
-        .markdown-preview.markdown-preview pre .punctuation,
-        .markdown-preview.markdown-preview code .punctuation {
-            color: #e48f3f;
-        }
-        
-        .markdown-preview.markdown-preview pre .operator,
-        .markdown-preview.markdown-preview code .operator {
-            color: #ffc038;
-        }
-        
-        .markdown-preview.markdown-preview pre .macro,
-        .markdown-preview.markdown-preview code .macro,
-        .markdown-preview.markdown-preview pre .directive,
-        .markdown-preview.markdown-preview code .directive,
-        .markdown-preview.markdown-preview pre .macro>.string,
-        .markdown-preview.markdown-preview code .macro>.string {
-            color: #00b43c !important;
-        }
-        
-        .markdown-preview.markdown-preview pre .function,
-        .markdown-preview.markdown-preview code .function {
-            color: #ff6b58;
-        }
-        
-        .markdown-preview.markdown-preview pre .keyword,
-        .markdown-preview.markdown-preview code .keyword {
-            color: #e8eb56;
-        }
-        
-        .markdown-preview.markdown-preview pre .string,
-        .markdown-preview.markdown-preview code .string {
-            color: #64cce6;
-        }
-    </style>
+    code[class*="language-"],
+    pre[class*="language-"] {
+      color: #333;
+      background: none;
+      font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      line-height: 1.4;
+
+      -moz-tab-size: 8;
+      -o-tab-size: 8;
+      tab-size: 8;
+
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+    }
+
+    /* Code blocks */
+    pre[class*="language-"] {
+      padding: .8em;
+      overflow: auto;
+      /* border: 1px solid #ddd; */
+      border-radius: 3px;
+      /* background: #fff; */
+      background: #f5f5f5;
+    }
+
+    /* Inline code */
+    :not(pre)>code[class*="language-"] {
+      padding: .1em;
+      border-radius: .3em;
+      white-space: normal;
+      background: #f5f5f5;
+    }
+
+    .token.comment,
+    .token.blockquote {
+      color: #969896;
+    }
+
+    .token.cdata {
+      color: #183691;
+    }
+
+    .token.doctype,
+    .token.punctuation,
+    .token.variable,
+    .token.macro.property {
+      color: #333;
+    }
+
+    .token.operator,
+    .token.important,
+    .token.keyword,
+    .token.rule,
+    .token.builtin {
+      color: #a71d5d;
+    }
+
+    .token.string,
+    .token.url,
+    .token.regex,
+    .token.attr-value {
+      color: #183691;
+    }
+
+    .token.property,
+    .token.number,
+    .token.boolean,
+    .token.entity,
+    .token.atrule,
+    .token.constant,
+    .token.symbol,
+    .token.command,
+    .token.code {
+      color: #0086b3;
+    }
+
+    .token.tag,
+    .token.selector,
+    .token.prolog {
+      color: #63a35c;
+    }
+
+    .token.function,
+    .token.namespace,
+    .token.pseudo-element,
+    .token.class,
+    .token.class-name,
+    .token.pseudo-class,
+    .token.id,
+    .token.url-reference .token.variable,
+    .token.attr-name {
+      color: #795da3;
+    }
+
+    .token.entity {
+      cursor: help;
+    }
+
+    .token.title,
+    .token.title .token.punctuation {
+      font-weight: bold;
+      color: #1d3e81;
+    }
+
+    .token.list {
+      color: #ed6a43;
+    }
+
+    .token.inserted {
+      background-color: #eaffea;
+      color: #55a532;
+    }
+
+    .token.deleted {
+      background-color: #ffecec;
+      color: #bd2c00;
+    }
+
+    .token.bold {
+      font-weight: bold;
+    }
+
+    .token.italic {
+      font-style: italic;
+    }
+
+
+    /* JSON */
+    .language-json .token.property {
+      color: #183691;
+    }
+
+    .language-markup .token.tag .token.punctuation {
+      color: #333;
+    }
+
+    /* CSS */
+    code.language-css,
+    .language-css .token.function {
+      color: #0086b3;
+    }
+
+    /* YAML */
+    .language-yaml .token.atrule {
+      color: #63a35c;
+    }
+
+    code.language-yaml {
+      color: #183691;
+    }
+
+    /* Ruby */
+    .language-ruby .token.function {
+      color: #333;
+    }
+
+    /* Markdown */
+    .language-markdown .token.url {
+      color: #795da3;
+    }
+
+    /* Makefile */
+    .language-makefile .token.symbol {
+      color: #795da3;
+    }
+
+    .language-makefile .token.variable {
+      color: #183691;
+    }
+
+    .language-makefile .token.builtin {
+      color: #0086b3;
+    }
+
+    /* Bash */
+    .language-bash .token.keyword {
+      color: #0086b3;
+    }
+
+    /* highlight */
+    pre[data-line] {
+      position: relative;
+      padding: 1em 0 1em 3em;
+    }
+
+    pre[data-line] .line-highlight-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      display: block;
+      width: 100%;
+    }
+
+    pre[data-line] .line-highlight {
+      position: absolute;
+      left: 0;
+      right: 0;
+      padding: inherit 0;
+      margin-top: 1em;
+      background: hsla(24, 20%, 50%, .08);
+      background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+      pointer-events: none;
+      line-height: inherit;
+      white-space: pre;
+    }
+
+    pre[data-line] .line-highlight:before,
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-start);
+      position: absolute;
+      top: .4em;
+      left: .6em;
+      min-width: 1em;
+      padding: 0 .5em;
+      background-color: hsla(24, 20%, 50%, .4);
+      color: hsl(24, 20%, 95%);
+      font: bold 65%/1.5 sans-serif;
+      text-align: center;
+      vertical-align: .3em;
+      border-radius: 999px;
+      text-shadow: none;
+      box-shadow: 0 1px white;
+    }
+
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-end);
+      top: auto;
+      bottom: .4em;
+    }
+
+    html body {
+      font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow: initial;
+      box-sizing: border-box;
+      word-wrap: break-word
+    }
+
+    html body>:first-child {
+      margin-top: 0
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5,
+    html body h6 {
+      line-height: 1.2;
+      margin-top: 1em;
+      margin-bottom: 16px;
+      color: #000
+    }
+
+    html body h1 {
+      font-size: 2.25em;
+      font-weight: 300;
+      padding-bottom: .3em
+    }
+
+    html body h2 {
+      font-size: 1.75em;
+      font-weight: 400;
+      padding-bottom: .3em
+    }
+
+    html body h3 {
+      font-size: 1.5em;
+      font-weight: 500
+    }
+
+    html body h4 {
+      font-size: 1.25em;
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1.1em;
+      font-weight: 600
+    }
+
+    html body h6 {
+      font-size: 1em;
+      font-weight: 600
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5 {
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1em
+    }
+
+    html body h6 {
+      color: #5c5c5c
+    }
+
+    html body strong {
+      color: #000
+    }
+
+    html body del {
+      color: #5c5c5c
+    }
+
+    html body a:not([href]) {
+      color: inherit;
+      text-decoration: none
+    }
+
+    html body a {
+      color: #08c;
+      text-decoration: none
+    }
+
+    html body a:hover {
+      color: #00a3f5;
+      text-decoration: none
+    }
+
+    html body img {
+      max-width: 100%
+    }
+
+    html body>p {
+      margin-top: 0;
+      margin-bottom: 16px;
+      word-wrap: break-word
+    }
+
+    html body>ul,
+    html body>ol {
+      margin-bottom: 16px
+    }
+
+    html body ul,
+    html body ol {
+      padding-left: 2em
+    }
+
+    html body ul.no-list,
+    html body ol.no-list {
+      padding: 0;
+      list-style-type: none
+    }
+
+    html body ul ul,
+    html body ul ol,
+    html body ol ol,
+    html body ol ul {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body li {
+      margin-bottom: 0
+    }
+
+    html body li.task-list-item {
+      list-style: none
+    }
+
+    html body li>p {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body .task-list-item-checkbox {
+      margin: 0 .2em .25em -1.8em;
+      vertical-align: middle
+    }
+
+    html body .task-list-item-checkbox:hover {
+      cursor: pointer
+    }
+
+    html body blockquote {
+      margin: 16px 0;
+      font-size: inherit;
+      padding: 0 15px;
+      color: #5c5c5c;
+      border-left: 4px solid #d6d6d6
+    }
+
+    html body blockquote>:first-child {
+      margin-top: 0
+    }
+
+    html body blockquote>:last-child {
+      margin-bottom: 0
+    }
+
+    html body hr {
+      height: 4px;
+      margin: 32px 0;
+      background-color: #d6d6d6;
+      border: 0 none
+    }
+
+    html body table {
+      margin: 10px 0 15px 0;
+      border-collapse: collapse;
+      border-spacing: 0;
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+      word-break: keep-all
+    }
+
+    html body table th {
+      font-weight: bold;
+      color: #000
+    }
+
+    html body table td,
+    html body table th {
+      border: 1px solid #d6d6d6;
+      padding: 6px 13px
+    }
+
+    html body dl {
+      padding: 0
+    }
+
+    html body dl dt {
+      padding: 0;
+      margin-top: 16px;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: bold
+    }
+
+    html body dl dd {
+      padding: 0 16px;
+      margin-bottom: 16px
+    }
+
+    html body code {
+      font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+      font-size: .85em !important;
+      color: #000;
+      background-color: #f0f0f0;
+      border-radius: 3px;
+      padding: .2em 0
+    }
+
+    html body code::before,
+    html body code::after {
+      letter-spacing: -0.2em;
+      content: "\00a0"
+    }
+
+    html body pre>code {
+      padding: 0;
+      margin: 0;
+      font-size: .85em !important;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0
+    }
+
+    html body .highlight {
+      margin-bottom: 16px
+    }
+
+    html body .highlight pre,
+    html body pre {
+      padding: 1em;
+      overflow: auto;
+      font-size: .85em !important;
+      line-height: 1.45;
+      border: #d6d6d6;
+      border-radius: 3px
+    }
+
+    html body .highlight pre {
+      margin-bottom: 0;
+      word-break: normal
+    }
+
+    html body pre code,
+    html body pre tt {
+      display: inline;
+      max-width: initial;
+      padding: 0;
+      margin: 0;
+      overflow: initial;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: transparent;
+      border: 0
+    }
+
+    html body pre code:before,
+    html body pre tt:before,
+    html body pre code:after,
+    html body pre tt:after {
+      content: normal
+    }
+
+    html body p,
+    html body blockquote,
+    html body ul,
+    html body ol,
+    html body dl,
+    html body pre {
+      margin-top: 0;
+      margin-bottom: 16px
+    }
+
+    html body kbd {
+      color: #000;
+      border: 1px solid #d6d6d6;
+      border-bottom: 2px solid #c7c7c7;
+      padding: 2px 4px;
+      background-color: #f0f0f0;
+      border-radius: 3px
+    }
+
+    @media print {
+      html body {
+        background-color: #fff
+      }
+
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        color: #000;
+        page-break-after: avoid
+      }
+
+      html body blockquote {
+        color: #5c5c5c
+      }
+
+      html body pre {
+        page-break-inside: avoid
+      }
+
+      html body table {
+        display: table
+      }
+
+      html body img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%
+      }
+
+      html body pre,
+      html body code {
+        word-wrap: break-word;
+        white-space: pre
+      }
+    }
+
+    .markdown-preview {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box
+    }
+
+    .markdown-preview .pagebreak,
+    .markdown-preview .newpage {
+      page-break-before: always
+    }
+
+    .markdown-preview pre.line-numbers {
+      position: relative;
+      padding-left: 3.8em;
+      counter-reset: linenumber
+    }
+
+    .markdown-preview pre.line-numbers>code {
+      position: relative
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows {
+      position: absolute;
+      pointer-events: none;
+      top: 1em;
+      font-size: 100%;
+      left: 0;
+      width: 3em;
+      letter-spacing: -1px;
+      border-right: 1px solid #999;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span {
+      pointer-events: none;
+      display: block;
+      counter-increment: linenumber
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span:before {
+      content: counter(linenumber);
+      color: #999;
+      display: block;
+      padding-right: .8em;
+      text-align: right
+    }
+
+    .markdown-preview .mathjax-exps .MathJax_Display {
+      text-align: center !important
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .btn-group {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .status {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .output-div {
+      margin-bottom: 16px
+    }
+
+    .scrollbar-style::-webkit-scrollbar {
+      width: 8px
+    }
+
+    .scrollbar-style::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    .scrollbar-style::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      overflow: auto
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+      position: relative;
+      top: 0
+    }
+
+    @media screen and (min-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em calc(50% - 457px + 2em)
+      }
+    }
+
+    @media screen and (max-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        font-size: 14px !important;
+        padding: 1em
+      }
+    }
+
+    @media print {
+      html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+        display: none
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+      position: fixed;
+      bottom: 8px;
+      left: 8px;
+      font-size: 28px;
+      cursor: pointer;
+      color: inherit;
+      z-index: 99;
+      width: 32px;
+      text-align: center;
+      opacity: .4
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
+      opacity: 1
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100%;
+      padding: 32px 0 48px 0;
+      font-size: 14px;
+      box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+      box-sizing: border-box;
+      overflow: auto;
+      background-color: inherit
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar {
+      width: 8px
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a {
+      text-decoration: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      padding: 0 1.6em;
+      margin-top: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li {
+      margin-bottom: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      list-style-type: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+      left: 300px;
+      width: calc(100% - 300px);
+      padding: 2em calc(50% - 457px - 150px);
+      margin: 0;
+      box-sizing: border-box
+    }
+
+    @media screen and (max-width:1274px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        width: 100%
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
+      left: 50%;
+      transform: translateX(-50%)
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
+      display: none
+    }
+
+    .markdown-preview.markdown-preview {
+      left: 0 !important;
+      transform: none !important;
+      font-family: 'Fira Sans', sans-serif;
+      background-color: #222222;
+      color: #aaaaaa;
+    }
+
+    .markdown-preview.markdown-preview strong {
+      color: #bbbbbb;
+    }
+
+    .markdown-preview.markdown-preview .media-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .markdown-preview.markdown-preview .media-img {
+      height: 40px;
+    }
+
+    .markdown-preview.markdown-preview h1,
+    .markdown-preview.markdown-preview h2,
+    .markdown-preview.markdown-preview h3,
+    .markdown-preview.markdown-preview h4,
+    .markdown-preview.markdown-preview h5,
+    .markdown-preview.markdown-preview h6 {
+      color: #bbbbbb;
+    }
+
+    .markdown-preview.markdown-preview a {
+      color: #df6400;
+    }
+
+    .markdown-preview.markdown-preview footer {
+      font-size: 75%;
+    }
+
+    .markdown-preview.markdown-preview pre,
+    .markdown-preview.markdown-preview code {
+      font-family: 'Fira Mono', monospace;
+      background-color: #363636;
+      color: #c5c5c5;
+    }
+
+    .markdown-preview.markdown-preview pre .punctuation,
+    .markdown-preview.markdown-preview code .punctuation {
+      color: #e48f3f;
+    }
+
+    .markdown-preview.markdown-preview pre .operator,
+    .markdown-preview.markdown-preview code .operator {
+      color: #ffc038;
+    }
+
+    .markdown-preview.markdown-preview pre .macro,
+    .markdown-preview.markdown-preview code .macro,
+    .markdown-preview.markdown-preview pre .directive,
+    .markdown-preview.markdown-preview code .directive,
+    .markdown-preview.markdown-preview pre .macro>.string,
+    .markdown-preview.markdown-preview code .macro>.string {
+      color: #00b43c !important;
+    }
+
+    .markdown-preview.markdown-preview pre .function,
+    .markdown-preview.markdown-preview code .function {
+      color: #ff6b58;
+    }
+
+    .markdown-preview.markdown-preview pre .keyword,
+    .markdown-preview.markdown-preview code .keyword {
+      color: #e8eb56;
+    }
+
+    .markdown-preview.markdown-preview pre .string,
+    .markdown-preview.markdown-preview code .string {
+      color: #64cce6;
+    }
+  </style>
 </head>
 
 <body for="html-export">
-    <div class="mume markdown-preview  ">
-        <h1 class="mume-header undefined" id="kurs-j%C4%99zyka-c">Kurs j&#x119;zyka C++</h1>
+  <div class="mume markdown-preview  ">
+    <h1 class="mume-header undefined" id="kurs-j%C4%99zyka-c">Kurs j&#x119;zyka C++</h1>
 
-        <h2 class="mume-header undefined" id="rozdzia%C5%82-1-wst%C4%99p">Rozdzia&#x142; 1: Wst&#x119;p</h2>
+    <h2 class="mume-header undefined" id="rozdzia%C5%82-1-wst%C4%99p">Rozdzia&#x142; 1: Wst&#x119;p</h2>
 
-        <p>Autor: Wojciech Olech</p>
-        <div class="media-row">
-            <a href="https://www.facebook.com/steelph0en1x"><img class="media-img" src="img/facebook.png"></a>
-            <a href="https://www.youtube.com/channel/UCNbZooiWSOeu28mmOLCgQ2w"><img class="media-img" src="img/youtube.png"></a>
-            <a href="https://twitter.com/steel_ph0enix"><img class="media-img" src="img/twitter.png"></a>
-            <a href="https://github.com/SteelPh0enix"><img class="media-img" src="img/github.png"></a>
-        </div>
-        <h2 class="mume-header undefined" id="spis-tre%C5%9Bci">Spis tre&#x15B;ci</h2>
-
-        <ul>
-            <li><a href="#11-dla-kogo-przeznaczony-jest-ten-kurs">1.1 - Dla kogo przeznaczony jest ten kurs?</a></li>
-            <li><a href="#12-dlaczego-c">1.2 - Dlaczego C++?</a></li>
-            <li><a href="#13-cechy-j%C4%99zyka">1.3 - Cechy j&#x119;zyka</a></li>
-            <li><a href="#14-co-przedstawi%C4%99-w-kursie">1.4 - Co przedstawi&#x119; w kursie?</a></li>
-            <li><a href="#15-od-czego-zacz%C4%85%C4%87">1.5 - Od czego zacz&#x105;&#x107;?</a></li>
-        </ul>
-        <h2 class="mume-header" id="11-dla-kogo-przeznaczony-jest-ten-kurs">1.1 - Dla kogo przeznaczony jest ten kurs?</h2>
-
-        <p>Kurs ten postanowi&#x142;em przenaczy&#x107; g&#x142;&#xF3;wnie dla os&#xF3;b kt&#xF3;re chc&#x105; zacz&#x105;&#x107; nauk&#x119; z programowaniem od C++a, ale r&#xF3;wnie&#x17C; i dla os&#xF3;b kt&#xF3;re ju&#x17C; maj&#x105; pewne do&#x15B;wiadczenie
-            z nim, ale by&#x107; mo&#x17C;e migruj&#x105; z materia&#x142;&#xF3;w o s&#x142;abej jako&#x15B;ci, chc&#x105; si&#x119; go douczy&#x107; lub po prostu przypomnie&#x107; po d&#x142;u&#x17C;szej przerwie.</p>
-        <p>Postaram si&#x119; zwraca&#x107; uwag&#x119; na dobre praktki, oraz elementy samego procesu tworzenia kodu, kt&#xF3;re mog&#x105; sprawia&#x107; trudno&#x15B;ci lub by&#x107; ci&#x119;&#x17C;kie do zrozumienia, jednocze&#x15B;nie utrzymuj&#x105;c
-            tok kursu jak najmniej <em>bolesnym</em>. Osoby kt&#xF3;re chc&#x105; po prostu nauczy&#x107; si&#x119; pisa&#x107; w miar&#x119; sensowny kod bez potrzeby wg&#x142;&#x119;biania si&#x119; w ka&#x17C;dy szczeg&#xF3;&#x142; j&#x119;zyka powinny
-            si&#x119; tu odnale&#x17A;&#x107;, ale postaram si&#x119; mimo wszystko t&#x142;umaczy&#x107; te szczeg&#xF3;&#x142;y, kt&#xF3;re s&#x105; potencjalnie wa&#x17C;ne lub przydatne.</p>
-        <p>B&#x119;d&#x119; si&#x119; w nim pos&#x142;ugiwa&#x142; terminologi&#x105; stricte programistyczn&#x105;, ale postaram si&#x119; ka&#x17C;dy termin kt&#xF3;ry mo&#x17C;e by&#x107; potencjalnie niezrozumia&#x142;y wyja&#x15B;nia&#x107; w prostych
-            s&#x142;owach. B&#x119;dzie du&#x17C;o angielskich wstawek i pisania kodu w tym j&#x119;zyku. Dlaczego? Dlatego &#x17C;e, jakby nie patrze&#x107;, jest to globalny standard i wi&#x119;kszo&#x15B;&#x107; os&#xF3;b raczej zna angielski - lepiej
-            lub gorzej, a je&#x15B;li nie znaj&#x105; i chc&#x105; si&#x119; nauczy&#x107; programowa&#x107;, to b&#x119;d&#x105; mia&#x142;y du&#x17C;e problemy ze znajdowaniem porz&#x105;dnych i rozbudowanych materia&#x142;&#xF3;w kt&#xF3;re pozwol&#x105;
-            im efektywnie si&#x119; uczy&#x107;, wi&#x119;c to najwy&#x17C;sza pora na nauk&#x119;.</p>
-        <h2 class="mume-header" id="12-dlaczego-c">1.2 - Dlaczego C++?</h2>
-
-        <p>J&#x119;zyk C++ jest stosunkowo starym j&#x119;zykiem, bo powsta&#x142; w zamierzch&#x142;ych latach 80&#x2019; jako nast&#x119;pca j&#x119;zyka C. Jego g&#x142;&#xF3;wn&#x105; nisz&#x105; by&#x142;o programowanie systemowe oraz tworzenie aplikacji
-            na komputery, gdzie nadal jest do&#x15B;&#x107; szeroko wykorzystywany. W tej chwili, w j&#x119;zyku C++ mo&#x17C;na programowa&#x107; r&#xF3;wnie&#x17C; na urz&#x105;dzenia mobilne i platformy embedded (Arduino jest tego &#x15B;wietnym przyk&#x142;adem),
-            oraz prawdopodobnie na par&#x119; mniej popularnych platform z kt&#xF3;rymi si&#x119; nie zetkn&#x105;&#x142;em i o kt&#xF3;rych istnieniu nie mam poj&#x119;cia.</p>
-        <p>Nale&#x17C;y bra&#x107; jednak pod uwag&#x119; to, &#x17C;e j&#x119;zyk programowania to tylko narz&#x119;dzie, kt&#xF3;re dobiera si&#x119; do wykonywanej pracy. Sam fakt &#x17C;e mo&#x17C;emy co&#x15B; zrobi&#x107; m&#x142;otkiem, nie oznacza
-            &#x17C;e powinni&#x15B;my od razu go u&#x17C;y&#x107;. Dlatego, mimo szerokiego zakresu platform i zastosowa&#x144; wspieranych przez ten j&#x119;zyk, w niekt&#xF3;rych u&#x17C;ywa si&#x119; go znacznie rzadziej ni&#x17C; w pozosta&#x142;ych.</p>
-        <p>Gdybym mia&#x142; wskaza&#x107; najwi&#x119;ksze nisze C++a na ten moment (to jest, rok 2019), to na pewno zwr&#xF3;ci&#x142;bym uwag&#x119; na</p>
-        <ul>
-            <li>Programowanie aplikacji wieloplatformowych - tutaj niezmiennie C++ jest w miar&#x119; sensownym narz&#x119;dziem - lecz powoli wypieranym, na rzecz nowocze&#x15B;niejszych rozwi&#x105;za&#x144; i j&#x119;zyk&#xF3;w - oraz istniej&#x105; bardzo
-                bogate biblioteki i frameworki kt&#xF3;re umo&#x17C;liwiaj&#x105; szybsze i &#x142;atwiejsze tworzenie kodu pod wiele platform (nie tylko system&#xF3;w, ale i urz&#x105;dze&#x144;). Najpopularniejszymi z nich s&#x105; biblioteki Boost
-                oraz framework Qt.</li>
-            <li>Game development - ze wzgl&#x119;du na kilka cech tego j&#x119;zyka (o kt&#xF3;rych b&#x119;dzie za chwil&#x119;), C++ jest &#x15B;wietnym i nadal do&#x15B;&#x107; popularnym j&#x119;zykiem do pisania gier komputerowych (g&#x142;&#xF3;wnie
-                AAA, poniewa&#x17C; du&#x17C;a cz&#x119;&#x15B;&#x107; indie devu korzysta z Unity, opartego o j&#x119;zyk C# - aczkolwiek w Unreal Engine mo&#x17C;emy u&#x17C;ywa&#x107; C++a).</li>
-            <li>Embedded - platformy pokroju AVR i ARM zazwyczaj maj&#x105; pewne wsparcie j&#x119;zyka C++, na przyk&#x142;ad w postaci frameworka Arduino. Mimo to, g&#x142;&#xF3;wnym j&#x119;zykiem u&#x17C;ywanym na nich jest nadal C, poniewa&#x17C; nawet
-                je&#x15B;li mamy wsparcie C++a to i tak jest ono do&#x15B;&#x107; ograniczone, ale istnieje.</li>
-            <li>Programowanie systemowe - m&#xF3;wi&#x119; tutaj o tworzeniu kodu &#x15B;ci&#x15B;le powi&#x105;zanego z systemem operacyjnym. Tutaj r&#xF3;wnie&#x17C; C jest bardzo szeroko wykorzystywany, ale g&#x142;&#xF3;wnie na niskim poziomie. Je&#x15B;li
-                chcemy napisa&#x107; program kt&#xF3;ry b&#x119;dzie korzysta&#x107; z systemowego API (interfejsu za pomoc&#x105; kt&#xF3;rego mo&#x17C;emy na nim dzia&#x142;a&#x107;), to mo&#x17C;emy bez problemu u&#x17C;y&#x107; do tego C++a.</li>
-        </ul>
-        <p>Rzecz jasna znajd&#x105; si&#x119; r&#xF3;wnie&#x17C; znacznie mniejsze nisze, oraz przypadki kraw&#x119;dziowe - na przyk&#x142;ad wykorzystywanie C++a do tworzenia back-endu stron internetowych. S&#x105; to jednak w du&#x17C;ej mierze ciekawostki.
-            Takie decyzje podejmuje si&#x119; w specjalnych przypadkach, kiedy dla danego scenariusza s&#x105; najlepsz&#x105; opcj&#x105;, lub mniejszym z&#x142;em.</p>
-        <p>Podsumowuj&#x105;c: C++ nadaje si&#x119; do wielu r&#xF3;&#x17C;nych zastosowa&#x144;, ale w rzeczywisto&#x15B;ci zawsze nale&#x17C;y dobiera&#x107; narz&#x119;dzie do wykonywanej pracy. Zak&#x142;adam jednak &#x17C;e jeste&#x15B; tutaj w celu
-            nauczenia si&#x119; tego j&#x119;zyka, wi&#x119;c jakiekolwiek by twoje powody nie by&#x142;y - &#x15B;mia&#x142;o kontynuuj, ale trzymaj powy&#x17C;sz&#x105; zasad&#x119; w pami&#x119;ci, &#x17C;eby w przysz&#x142;o&#x15B;ci unikn&#x105;&#x107;
-            strzelenia sobie w stop&#x119;.</p>
-        <h2 class="mume-header" id="13-cechy-j%C4%99zyka">1.3 - Cechy j&#x119;zyka</h2>
-
-        <p>Nie b&#x119;d&#x119; tutaj za mocno si&#x119; rozpisywa&#x142; od strony technicznej, poniewa&#x17C; na to przyjdzie pora w trakcie kursu. Powiem jednak odrobin&#x119; o tych cechach, kt&#xF3;re mog&#x105; interesowa&#x107; osob&#x119; niezaznajomion&#x105;
-            z programowaniem lub zastanawiaj&#x105;c&#x105; si&#x119; <em>&#x201C;czym si&#x119; r&#xF3;&#x17C;ni C++ od tego innego jezyka o kt&#xF3;rym s&#x142;ysza&#x142;em&#x201D;</em></p>
-        <ul>
-            <li>Mo&#x17C;na w nim pisa&#x107; ca&#x142;kiem <em>szybki</em> kod bez ogromnego nak&#x142;adu pracy - dyskusje o <em>szybko&#x15B;ci</em> j&#x119;zyka i kodu s&#x105; bardzo &#x15B;liskim tematem, ze wzgl&#x119;du na relatywno&#x15B;&#x107;
-                tych szybko&#x15B;ci, ilo&#x15B;&#x107; czynnik&#xF3;w jakie si&#x119; na ni&#x105; sk&#x142;adaj&#x105;, oraz ceny jaka przychodzi za ni&#x105; zap&#x142;aci&#x107;. Niemniej jednak, ze wzgl&#x119;du na blisko&#x15B;&#x107; C++a do <em>metalu</em>                (hardware&#x2019;u i systemu), fakt &#x17C;e mo&#x17C;emy cz&#x119;&#x15B;&#x107; pracy programu przenie&#x15B;&#x107; w proces kompilacji (czyli generowania pliku wykonywalnego z kodu) optymalizacje wprowadzane przez kompilator i ca&#x142;kiem
-                spor&#x105; ilo&#x15B;&#x107; element&#xF3;w tego j&#x119;zyka, mo&#x17C;na powiedzie&#x107; &#x17C;e C++ daje nam do&#x15B;&#x107; dobry start do pisania relatywnie szybkiego i wydajnego kodu.</li>
-            <li>Ma szerok&#x105; gam&#x119; zastosowa&#x144; - jak pisa&#x142;em wy&#x17C;ej, od pisania aplikacji blisko zwi&#x105;zanych z systemem operacyjnym, przez zwyk&#x142;e aplikacje desktopowe i aplikacje na telefony, po programy na mikrokontrolery.
-                Znaj&#x105;c go, mamy ca&#x142;kiem szerokie pole manewru i &#x142;atwo jest nam go wstawi&#x107; do wielu r&#xF3;&#x17C;nych projekt&#xF3;w (<em>ale zaznaczam, nie zawsze jest to najlepsza opcja</em>).</li>
-            <li>Pozwala nam do&#x15B;wiadczy&#x107; pisania kodu nisko-- jak i wysoko-poziomowego - Przez <em>&#x201C;niski&#x201D;</em> poziom rozumiem tutaj g&#x142;&#xF3;wnie operowanie na pami&#x119;ci programu, ni&#x17C;ej nie ma wi&#x119;kszego sensu
-                schodzi&#x107; w wi&#x119;kszo&#x15B;ci przypadk&#xF3;w. Przez <em>&#x201C;wysoki&#x201D;</em> poziom, rozumiem mi&#x119;dzy innymi wspieranie programowania obiektowego oraz - przynajmniej w cz&#x119;&#x15B;ci - funkcyjnego, co daje nam
-                mo&#x17C;liwo&#x15B;&#x107; uczenia si&#x119; jak tworzy&#x107; wysokopoziomowy, <em>abstrakcyjny</em> kod za pomoc&#x105; tego j&#x119;zyka.</li>
-            <li>Wspiera wiele paradygmat&#xF3;w - <em>paradygmat</em> to po ch&#x142;opsku m&#xF3;wi&#x105;c <em>spos&#xF3;b patrzenia na nasz kod</em>. Przyk&#x142;adowo, paradygmat obiektowy - w nim, elementy kodu to obiekty, kt&#xF3;re maj&#x105; pewne
-                cechy i w&#x142;a&#x15B;ciwo&#x15B;ci i za pomoc&#x105; kt&#xF3;rych budujemy ca&#x142;y nasz kod, a w strukturalnym na przyk&#x142;ad mamy mi&#x119;dzy innymi struktury kontrolne kt&#xF3;re pozwalaj&#x105; sterowa&#x107; wykonywaniem
-                kodu. Mo&#x17C;emy zaczerpn&#x105;&#x107; ka&#x17C;dego z nich po trochu, albo skupi&#x107; si&#x119; na jednym - ten j&#x119;zyk nam tego w du&#x17C;ej mierze nie ogranicza.</li>
-        </ul>
-        <p>Te cztery cechy to moim zdaniem g&#x142;&#xF3;wne elementy C++a kt&#xF3;re charakteryzuj&#x105; go na tle wielu innych j&#x119;zyk&#xF3;w. Jest ich co prawda znacznie wi&#x119;cej, a ka&#x17C;da z nich ma swoje wady i zalety, dlatego &#x17C;eby
-            dobrze programowa&#x107; w tym j&#x119;zyku nale&#x17C;y <em>wyczu&#x107; balans</em> mi&#x119;dzy nimi i wiedziec kiedy korzysta&#x107; z kt&#xF3;rej cechy i kt&#xF3;rego elementu j&#x119;zyka, a to przychodzi z do&#x15B;wiadczeniem.</p>
-        <h2 class="mume-header" id="14-co-przedstawi%C4%99-w-kursie">1.4 - Co przedstawi&#x119; w kursie?</h2>
-
-        <p>Wst&#x119;pny konspekt tego kursu powsta&#x142; ponad p&#xF3;&#x142;tora roku temu, pod koniec 2017. Znajduje si&#x119; on <a href="https://github.com/SteelPh0enix/KursCPP/wiki">tutaj (https://github.com/SteelPh0enix/KursCPP/wiki)</a>. Od tego
-            czasu mia&#x142;em okazj&#x119; zapoznania si&#x119; z kilkoma dodatkowymi &#x17A;r&#xF3;d&#x142;ami na temat tego jezyka i widz&#x119; &#x17C;e ten konspekt w momencie pisania tego wst&#x119;pu jest na pewno za ma&#x142;o szczeg&#xF3;&#x142;owy,
-            wi&#x119;c pozostanie jedynie <em>guideline&#x2019;m</em> kt&#xF3;rym b&#x119;d&#x119; si&#x119; mniej-wi&#x119;cej kierowa&#x142;. Mam zamiar czerpa&#x107; inspiracj&#x119; g&#x142;&#xF3;wnie z <a href="https://www.learncpp.com/">kursu learncpp.com</a>            (kt&#xF3;ry, swoj&#x105; drog&#x105;, gor&#x105;co polecam) i opcjonalnie ksi&#x105;&#x17C;ek Bjarne Stroustrupa.</p>
-        <p>Og&#xF3;lnie m&#xF3;wi&#x105;c, zaczn&#x119; od podstawowych element&#xF3;w, absolutnie koniecznych do nauczenia si&#x119; i zrozumienia, je&#x15B;li chce si&#x119; kontynuowa&#x107;. Wi&#x119;kszo&#x15B;&#x107; z nich jest wsp&#xF3;lna dla wielu
-            j&#x119;zyk&#xF3;w, wi&#x119;c po takim wst&#x119;pie przenoszenie si&#x119; na co&#x15B; innego b&#x119;dzie na pewno &#x142;atwiejsze.</p>
-        <p>P&#xF3;&#x17A;niej skupi&#x119; si&#x119; na nieco bardziej zaawansowanych rzeczach, ale jednak takich kt&#xF3;re s&#x105; w znacznej wi&#x119;kszo&#x15B;ci przypadk&#xF3;w wykorzystywane w programach C++owych - m&#xF3;wi&#x119; o paradygmacie
-            obiektowym oraz szablonach.</p>
-        <p>W te dwie cz&#x119;&#x15B;ci b&#x119;d&#x119; wplata&#x142; niekt&#xF3;re elementy z kolejnych, kt&#xF3;re b&#x119;d&#x105; m&#xF3;wi&#x107; mi&#x119;dzy innymi o bibliotece standardowej i jeszcze bardziej zaawansowanych technikach, ale tylko
-            je&#x15B;li b&#x119;dzie to konieczne lub u&#x142;atwi tworzenie kodu.</p>
-        <p>Standardem kt&#xF3;rego planuj&#x119; si&#x119; trzyma&#x107; jest C++14, ze wzgl&#x119;du na to &#x17C;e w tej chwili nie czuj&#x119; si&#x119; na tyle pewnie w standardzie C++17 &#x17C;eby m&#xF3;c go przedstawia&#x107;, ale postaram si&#x119;
-            dorzuca&#x107; ciekawoski z niego, &#x17C;eby nie pozostawa&#x107; kompletnie w tyle, a kiedy uzupe&#x142;ni&#x119; swoje braki w wiedzy, postaram si&#x119; uzupe&#x142;ni&#x107; te&#x17C; kurs.</p>
-        <p>Jak wspomnia&#x142;em wy&#x17C;ej, b&#x119;d&#x119; si&#x119; opiera&#x142; na kilku r&#xF3;&#x17C;nych rodzajach materia&#x142;&#xF3;w. Pe&#x142;n&#x105; list&#x119; ksi&#x105;&#x17C;ek i stron kt&#xF3;re osobi&#x15B;cie polecam i z kt&#xF3;rych
-            mam zamiar korzysta&#x107; podczas kursu, znajdziecie <a href="https://github.com/SteelPh0enix/KursCPP/wiki/Materialy-do-nauki">tutaj (https://github.com/SteelPh0enix/KursCPP/wiki/Materialy-do-nauki)</a></p>
-        <h2 class="mume-header" id="15-od-czego-zacz%C4%85%C4%87">1.5 - Od czego zacz&#x105;&#x107;?</h2>
-
-        <p>&#x17B;eby przygotowa&#x107; si&#x119; do nauki, nale&#x17C;y mie&#x107; gotowe &#x15B;rodowisko programistyczne (IDE) lub przystosowany do edycji kodu edytor. Od siebie mog&#x119; poleci&#x107; nast&#x119;puj&#x105;ce:</p>
-        <ul>
-            <li><a href="https://visualstudio.microsoft.com/pl/downloads/">Microsoft Visual Studio - Community</a> - jest to chyba najbardziej rozbudowana pozycja na li&#x15B;cie, ale ma jedn&#x105; zalet&#x119; - &#x142;atwo&#x15B;&#x107; instalacji. Wystarczy
-                pobra&#x107; instalator, zaznaczy&#x107; opcj&#x119; instalacji &#x15B;rodowiska do C++ i gotowe, mamy dzia&#x142;aj&#x105;ce IDE z aktualnym kompilatorem w kt&#xF3;rym mo&#x17C;emy pisa&#x107; kod. Rzecz jasna, jest ono r&#xF3;wnie&#x17C;
-                w pe&#x142;ni darmowe.
-                <ul>
-                    <li>Dla:
-                        <ul>
-                            <li>Os&#xF3;b kt&#xF3;re chc&#x105; czego&#x15B;, co zainstaluj&#x105; &#x201C;one-click&#x201D; i b&#x119;dzie dzia&#x142;a&#x107; bez wi&#x119;kszych problem&#xF3;w, od razu</li>
-                            <li>Os&#xF3;b kt&#xF3;re chc&#x105; ograniczy&#x107; proces uruchamiania programu do wci&#x15B;ni&#x119;cia jednego przycisku</li>
-                            <li>Os&#xF3;b kt&#xF3;re nie maj&#x105; cierpliwo&#x15B;ci do nadmiernej konfiguracji</li>
-                        </ul>
-                    </li>
-                    <li>Nie dla:
-                        <ul>
-                            <li>Os&#xF3;b kt&#xF3;re nie maj&#x105; miejsca na dysku</li>
-                            <li>Os&#xF3;b ze s&#x142;abszymi pecetami</li>
-                            <li>Os&#xF3;b kt&#xF3;re korzystaj&#x105; z Linuxa</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="https://code.visualstudio.com/">Visual Studio Code</a> - Nie jest to IDE, lecz edytor, ale (w mojej opinii) najlepiej dzia&#x142;ajacy i najbardziej rozbudowany w kwestii tworzenia kodu. Wymaga on jednak r&#x119;cznej instalacji kompilatora
-                i zabawy z r&#x119;czn&#x105; kompilacj&#x105; kodu, lub zabaw&#x105; z systemami budowania, co mo&#x17C;e nie by&#x107; najergonomiczniejsze dla <em>newbie</em>, szczeg&#xF3;lnie na pocz&#x105;tku, ale z drugiej strony jest do&#x15B;&#x107;
-                lekkie i konfigurowalne oraz pozwala do&#x15B;wiadczy&#x107; jak wygl&#x105;da budowanie programu z kodu. Ja w kursie b&#x119;d&#x119; si&#x119; na nim opiera&#x142;, poniewa&#x17C; jest to m&#xF3;j ulubiony edytor, dlatego niech r&#x119;czna
-                kompilacja i zabawa z systemami budowania nie b&#x119;dzie ci straszna. Przynajmniej do czasu.
-                <ul>
-                    <li>Dla:
-                        <ul>
-                            <li>Os&#xF3;b kt&#xF3;re chc&#x105; mie&#x107; jeden edytor do programowania w r&#xF3;&#x17C;nych j&#x119;zykach i edycji tekstu jednocze&#x15B;nie</li>
-                            <li>Os&#xF3;b kt&#xF3;re bardzo lubi&#x105; bawi&#x107; si&#x119; z konfiguracj&#x105; i dostosowywaniem edytora pod siebie</li>
-                            <li>Os&#xF3;b kt&#xF3;rym nie straszna jest r&#x119;czna kompilacja</li>
-                            <li>Os&#xF3;b kt&#xF3;re lubi&#x105; stosunkowo lekkie, wieloplatformowe edytory</li>
-                        </ul>
-                    </li>
-                    <li>Nie dla:
-                        <ul>
-                            <li>Os&#xF3;b kt&#xF3;re chc&#x105; czego&#x15B;, co zainstaluj&#x105; &#x201C;one-click&#x201D; i b&#x119;dzie dzia&#x142;a&#x107; bez wi&#x119;kszych problem&#xF3;w, od razu</li>
-                            <li>Os&#xF3;b kt&#xF3;re chc&#x105; mie&#x107; wszystko pod &#x142;adnie opisanymi przyciskami, a najlepiej &#x17C;eby to r&#xF3;wnie&#x17C; dzia&#x142;a&#x142;o z miejsca</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="https://www.jetbrains.com/clion/">JetBrains CLion</a> - P&#x142;atne IDE, z darmow&#x105; licencj&#x105; dla student&#xF3;w oraz uczni&#xF3;w. Do&#x15B;&#x107; mocno rozbudowane i bogate w feature&#x2019;y typowe dla produkt&#xF3;w
-                JetBrains, domy&#x15B;lnie korzysta z systemu budowania CMake (kt&#xF3;ry i tak planuj&#x119; wprowadzi&#x107; w kursie, kiedy przyjdzie na to pora, wi&#x119;c nie powinno to by&#x107; ogromnym zmartwieniem). Nie jestem pewny, ale chyba
-                r&#xF3;wnie&#x17C; wymaga r&#x119;cznej instalacji kompilatora, tak jak w przypadku Visual Studio Code, lecz tutaj mamy podobny workflow jak w Visual Studio Community - wszystko jest &#x142;adnie dost&#x119;pne pod przyciskami
-                <ul>
-                    <li>Dla:
-                        <ul>
-                            <li>Os&#xF3;b kt&#xF3;re chc&#x105; czego&#x15B;, co zainstaluj&#x105; &#x201C;one-click&#x201D; i b&#x119;dzie dzia&#x142;a&#x107; bez wi&#x119;kszych problem&#xF3;w, od razu</li>
-                            <li>Os&#xF3;b kt&#xF3;re chc&#x105; ograniczy&#x107; proces uruchamiania programu do wci&#x15B;ni&#x119;cia jednego przycisku</li>
-                            <li>Os&#xF3;b kt&#xF3;re chcia&#x142;y by u&#x17C;y&#x107; Visual Studio Community, ale maj&#x105; Linuxa</li>
-                        </ul>
-                    </li>
-                    <li>Nie dla:
-                        <ul>
-                            <li>Os&#xF3;b kt&#xF3;re nie kwalifikuj&#x105; si&#x119; do darmowego programu studenckiego/uczniowskiego i nie chc&#x105; p&#x142;aci&#x107;</li>
-                            <li>Os&#xF3;b ze s&#x142;abszymi pecetami</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="https://www.qt.io/download">Qt Creator</a> - Bezp&#x142;atne IDE (w wersji dla OpenSource), do&#x142;&#x105;czane do frameworka Qt, lecz mo&#x17C;na zainstalowa&#x107; je osobno (wystarczy przy instalacji <strong>odznaczy&#x107; wszystkie wersje Qt</strong>,
-                i opcjonalnie <strong>zaznaczy&#x107; najnowsz&#x105; wersj&#x119; toolchaina MinGW</strong>). Miewa swoje humorki z debugerem, ale og&#xF3;lnie rzecz ujmuj&#x105;c jest to ca&#x142;kiem rozs&#x105;dna opcja. Wspiera Qt&#x2019;owski system
-                budowania <code>qmake</code> oraz CMake.
-                <ul>
-                    <li>Dla:
-                        <ul>
-                            <li>Os&#xF3;b kt&#xF3;re chc&#x105; czego&#x15B;, co zainstaluj&#x105; &#x201C;one-click&#x201D; i b&#x119;dzie dzia&#x142;a&#x107; bez wi&#x119;kszych problem&#xF3;w, od razu</li>
-                            <li>Os&#xF3;b kt&#xF3;re chc&#x105; ograniczy&#x107; proces uruchamiania programu do wci&#x15B;ni&#x119;cia jednego przycisku</li>
-                            <li>Os&#xF3;b kt&#xF3;re nie maj&#x105; cierpliwo&#x15B;ci do nadmiernej konfiguracji</li>
-                            <li>Os&#xF3;b kt&#xF3;rym nie pasuje &#x17C;adna z poprzednich opcji</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <p>Dodatkowe IDE, kt&#xF3;rych kiedy&#x15B; u&#x17C;ywa&#x142;em a kt&#xF3;re teraz postawi&#x142;bym pod znakiem zapytania to</p>
-        <ul>
-            <li><strong>Code::Blocks</strong> - niestety, jest to ju&#x17C; do&#x15B;&#x107; wiekowy program i nie jest on mimo wszystko - moim zdaniem - dobrym wyborem na start, biorac pod uwag&#x119; ilo&#x15B;&#x107; alternatywnych rozwi&#x105;za&#x144;
-                na ten moment. G&#x142;&#xF3;wn&#x105; jego wad&#x105; jest brak sensownego wsparcia debugera, co w przysz&#x142;o&#x15B;ci mo&#x17C;e bardzo mocno bole&#x107;, oraz fakt &#x17C;e do&#x142;&#x105;czany do zestawu kompilator robi si&#x119;
-                nieco przestarza&#x142;y, a i opcje trzeba nieco &#x201C;tweakowa&#x107;&#x201D; &#x17C;eby by&#x107; z nim na czasie.</li>
-            <li><strong>CodeLite</strong> - W teorii bardzo fajnie wygl&#x105;daj&#x105;ce IDE, w praktyce ci&#x119;&#x17C;ko mi by&#x142;o je zmusi&#x107; do dzia&#x142;ania. Pozostawiam jako ciekawostk&#x119;, mo&#x17C;e kto&#x15B; b&#x119;dzie mia&#x142;
-                do niego wi&#x119;cej szcz&#x119;&#x15B;cia ni&#x17C; ja</li>
-        </ul>
-        <p>Na koniec, dodam jeszcze IDE o kt&#xF3;rych wiem &#x17C;e s&#x105; popularne i nadal u&#x17C;ywane, ale moim zdaniem nie warte uwagi z kilku wzgl&#x119;d&#xF3;w.</p>
-        <ul>
-            <li><strong>Dev-C++</strong> - lista wad jest d&#x142;uga, od przestarza&#x142;ego desingu, przez znacznie przestarza&#x142;y kompilator oraz domy&#x15B;lne opcje, po r&#xF3;&#x17C;ne cuda na kiju kt&#xF3;re widzia&#x142;em z jego udzia&#x142;em,
-                pokroju niech&#x119;ci do kompilowania dobrze napisanego kodu. Zdaj&#x119; sobie spraw&#x119; &#x17C;e jest u&#x17C;ywany nadal w wielu szko&#x142;ach i uczelniach, ale sugeruj&#x119; jednak zmian&#x119; - nie ma sensu by&#x107; masochist&#x105;.</li>
-            <li><strong>Borland C++ Builder</strong> - Przestarza&#x142;e i kompletnie martwe na rynku, w wersji 2003, kt&#xF3;ra by&#x142;a popularyzowana przez pewien alternatywny kurs C++a. Je&#x15B;li potrzebujesz czego&#x15B; w czym b&#x119;dziesz w
-                stanie zamodelowa&#x107; GUI, masz Qt Creatora.</li>
-            <li><strong>Eclipse IDE</strong> - Lekko masochistyczny design, do&#x15B;&#x107; wiekowe, ci&#x119;&#x17C;ko mi si&#x119; do niego by&#x142;o przyzwyczai&#x107; i z niego korzysta&#x107;. Moim zdaniem istniej&#x105; znacznie lepsze alternatywy
-                do czystego C++a, nadal jednak znajduje nisze w embedded (istniej&#x105; specjalne wersje przystosowane do programowania na dane platformy)</li>
-        </ul>
-        <p>Rzecz jasna jest znacznie wi&#x119;cej IDE oraz edytor&#xF3;w na rynku, wi&#x119;c ta lista nie jest jak&#x105;&#x15B; &#x201C;Ostateczn&#x105; List&#x105; Najlepszych IDE Na Rynku&#x201D;, jest bazowana na moich preferencjach i do&#x15B;wiadczeniach.
-            Je&#x15B;li &#x17C;adna z opcji Ci nie pasuje, nie kr&#x119;puj si&#x119; i poszukaj czego&#x15B; alternatywnego dla siebie.</p>
-        <footer>
-            <div class="icon-note">Icons made by <a href="https://www.freepik.com/?__hstc=57440181.62de920952d43b5ea5ff0838a1446c52.1560614074398.1560614074398.1560614074398.1&amp;__hssc=57440181.4.1560614074398&amp;__hsfp=3655662182" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"
-                    title="Flaticon">www.flaticon.com</a> are licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-            <div class="copyright-note">Autorskie media (obrazy, animacje, d&#x17A;wi&#x119;ki, etc.) udost&#x119;pniane pod licencj&#x105; CC BY-NC 4.0.
-                <br> Tekst oraz kod udost&#x119;pniany pod licencj&#x105; Apache 2.0</div>
-        </footer>
+    <p>Autor: Wojciech Olech</p>
+    <p><a href="02_wprowadzenie_do_jezyka.html">Przejd&#x17A; do nast&#x119;pnej cz&#x119;&#x15B;ci</a></p>
+    <div class="media-row">
+      <a href="https://www.facebook.com/steelph0en1x"><img class="media-img" src="img/facebook.png"></a>
+      <a href="https://www.youtube.com/channel/UCNbZooiWSOeu28mmOLCgQ2w"><img class="media-img"
+          src="img/youtube.png"></a>
+      <a href="https://twitter.com/steel_ph0enix"><img class="media-img" src="img/twitter.png"></a>
+      <a href="https://github.com/SteelPh0enix"><img class="media-img" src="img/github.png"></a>
     </div>
+    <h2 class="mume-header undefined" id="spis-tre%C5%9Bci">Spis tre&#x15B;ci</h2>
+
+    <ul>
+      <li><a href="#11-dla-kogo-przeznaczony-jest-ten-kurs">1.1 - Dla kogo przeznaczony jest ten kurs?</a></li>
+      <li><a href="#12-dlaczego-c">1.2 - Dlaczego C++?</a></li>
+      <li><a href="#13-cechy-j%C4%99zyka">1.3 - Cechy j&#x119;zyka</a></li>
+      <li><a href="#14-co-przedstawi%C4%99-w-kursie">1.4 - Co przedstawi&#x119; w kursie?</a></li>
+      <li><a href="#15-od-czego-zacz%C4%85%C4%87">1.5 - Od czego zacz&#x105;&#x107;?</a></li>
+    </ul>
+    <h2 class="mume-header" id="11-dla-kogo-przeznaczony-jest-ten-kurs">1.1 - Dla kogo przeznaczony jest ten kurs?</h2>
+
+    <p>Kurs ten postanowi&#x142;em przenaczy&#x107; g&#x142;&#xF3;wnie dla os&#xF3;b kt&#xF3;re chc&#x105;
+      zacz&#x105;&#x107; nauk&#x119; z programowaniem od C++a, ale r&#xF3;wnie&#x17C; i dla os&#xF3;b kt&#xF3;re
+      ju&#x17C; maj&#x105; pewne do&#x15B;wiadczenie z nim, ale by&#x107; mo&#x17C;e migruj&#x105; z
+      materia&#x142;&#xF3;w o s&#x142;abej jako&#x15B;ci, chc&#x105; si&#x119; go douczy&#x107; lub po prostu
+      przypomnie&#x107; po d&#x142;u&#x17C;szej przerwie.</p>
+    <p>Postaram si&#x119; zwraca&#x107; uwag&#x119; na dobre praktki, oraz elementy samego procesu tworzenia kodu,
+      kt&#xF3;re mog&#x105; sprawia&#x107; trudno&#x15B;ci lub by&#x107; ci&#x119;&#x17C;kie do zrozumienia,
+      jednocze&#x15B;nie utrzymuj&#x105;c tok kursu jak najmniej <em>bolesnym</em>. Osoby kt&#xF3;re chc&#x105; po
+      prostu nauczy&#x107; si&#x119; pisa&#x107; w miar&#x119; sensowny kod bez potrzeby wg&#x142;&#x119;biania
+      si&#x119; w ka&#x17C;dy szczeg&#xF3;&#x142; j&#x119;zyka powinny si&#x119; tu odnale&#x17A;&#x107;, ale postaram
+      si&#x119; mimo wszystko t&#x142;umaczy&#x107; te szczeg&#xF3;&#x142;y, kt&#xF3;re s&#x105; potencjalnie
+      wa&#x17C;ne lub przydatne.</p>
+    <p>B&#x119;d&#x119; si&#x119; w nim pos&#x142;ugiwa&#x142; terminologi&#x105; stricte programistyczn&#x105;, ale
+      postaram si&#x119; ka&#x17C;dy termin kt&#xF3;ry mo&#x17C;e by&#x107; potencjalnie niezrozumia&#x142;y
+      wyja&#x15B;nia&#x107; w prostych s&#x142;owach. B&#x119;dzie du&#x17C;o angielskich wstawek i pisania kodu w tym
+      j&#x119;zyku. Dlaczego? Dlatego &#x17C;e, jakby nie patrze&#x107;, jest to globalny standard i
+      wi&#x119;kszo&#x15B;&#x107; os&#xF3;b raczej zna angielski - lepiej lub gorzej, a je&#x15B;li nie znaj&#x105; i
+      chc&#x105; si&#x119; nauczy&#x107; programowa&#x107;, to b&#x119;d&#x105; mia&#x142;y du&#x17C;e problemy ze
+      znajdowaniem porz&#x105;dnych i rozbudowanych materia&#x142;&#xF3;w kt&#xF3;re pozwol&#x105; im efektywnie
+      si&#x119; uczy&#x107;, wi&#x119;c to najwy&#x17C;sza pora na nauk&#x119;.</p>
+    <h2 class="mume-header" id="12-dlaczego-c">1.2 - Dlaczego C++?</h2>
+
+    <p>J&#x119;zyk C++ jest stosunkowo starym j&#x119;zykiem, bo powsta&#x142; w zamierzch&#x142;ych latach 80&apos;
+      jako nast&#x119;pca j&#x119;zyka C. Jego g&#x142;&#xF3;wn&#x105; nisz&#x105; by&#x142;o programowanie systemowe
+      oraz tworzenie aplikacji na komputery, gdzie nadal jest do&#x15B;&#x107; szeroko wykorzystywany. W tej chwili, w
+      j&#x119;zyku C++ mo&#x17C;na programowa&#x107; r&#xF3;wnie&#x17C; na urz&#x105;dzenia mobilne i platformy embedded
+      (Arduino jest tego &#x15B;wietnym przyk&#x142;adem), oraz prawdopodobnie na par&#x119; mniej popularnych platform
+      z kt&#xF3;rymi si&#x119; nie zetkn&#x105;&#x142;em i o kt&#xF3;rych istnieniu nie mam poj&#x119;cia.</p>
+    <p>Nale&#x17C;y bra&#x107; jednak pod uwag&#x119; to, &#x17C;e j&#x119;zyk programowania to tylko narz&#x119;dzie,
+      kt&#xF3;re dobiera si&#x119; do wykonywanej pracy. Sam fakt &#x17C;e mo&#x17C;emy co&#x15B; zrobi&#x107;
+      m&#x142;otkiem, nie oznacza &#x17C;e powinni&#x15B;my od razu go u&#x17C;y&#x107;. Dlatego, mimo szerokiego
+      zakresu platform i zastosowa&#x144; wspieranych przez ten j&#x119;zyk, w niekt&#xF3;rych u&#x17C;ywa si&#x119; go
+      znacznie rzadziej ni&#x17C; w pozosta&#x142;ych.</p>
+    <p>Gdybym mia&#x142; wskaza&#x107; najwi&#x119;ksze nisze C++a na ten moment (to jest, rok 2019), to na pewno
+      zwr&#xF3;ci&#x142;bym uwag&#x119; na</p>
+    <ul>
+      <li>Programowanie aplikacji wieloplatformowych - tutaj niezmiennie C++ jest w miar&#x119; sensownym
+        narz&#x119;dziem - lecz powoli wypieranym, na rzecz nowocze&#x15B;niejszych rozwi&#x105;za&#x144; i
+        j&#x119;zyk&#xF3;w - oraz istniej&#x105; bardzo bogate biblioteki i frameworki kt&#xF3;re
+        umo&#x17C;liwiaj&#x105; szybsze i &#x142;atwiejsze tworzenie kodu pod wiele platform (nie tylko system&#xF3;w,
+        ale i urz&#x105;dze&#x144;). Najpopularniejszymi z nich s&#x105; biblioteki Boost oraz framework Qt.</li>
+      <li>Game development - ze wzgl&#x119;du na kilka cech tego j&#x119;zyka (o kt&#xF3;rych b&#x119;dzie za
+        chwil&#x119;), C++ jest &#x15B;wietnym i nadal do&#x15B;&#x107; popularnym j&#x119;zykiem do pisania gier
+        komputerowych (g&#x142;&#xF3;wnie AAA, poniewa&#x17C; du&#x17C;a cz&#x119;&#x15B;&#x107; indie devu korzysta z
+        Unity, opartego o j&#x119;zyk C# - aczkolwiek w Unreal Engine mo&#x17C;emy u&#x17C;ywa&#x107; C++a).</li>
+      <li>Embedded - platformy pokroju AVR i ARM zazwyczaj maj&#x105; pewne wsparcie j&#x119;zyka C++, na przyk&#x142;ad
+        w postaci frameworka Arduino. Mimo to, g&#x142;&#xF3;wnym j&#x119;zykiem u&#x17C;ywanym na nich jest nadal C,
+        poniewa&#x17C; nawet je&#x15B;li mamy wsparcie C++a to i tak jest ono do&#x15B;&#x107; ograniczone, ale
+        istnieje.</li>
+      <li>Programowanie systemowe - m&#xF3;wi&#x119; tutaj o tworzeniu kodu &#x15B;ci&#x15B;le powi&#x105;zanego z
+        systemem operacyjnym. Tutaj r&#xF3;wnie&#x17C; C jest bardzo szeroko wykorzystywany, ale g&#x142;&#xF3;wnie na
+        niskim poziomie. Je&#x15B;li chcemy napisa&#x107; program kt&#xF3;ry b&#x119;dzie korzysta&#x107; z systemowego
+        API (interfejsu za pomoc&#x105; kt&#xF3;rego mo&#x17C;emy na nim dzia&#x142;a&#x107;), to mo&#x17C;emy bez
+        problemu u&#x17C;y&#x107; do tego C++a.</li>
+    </ul>
+    <p>Rzecz jasna znajd&#x105; si&#x119; r&#xF3;wnie&#x17C; znacznie mniejsze nisze, oraz przypadki kraw&#x119;dziowe -
+      na przyk&#x142;ad wykorzystywanie C++a do tworzenia back-endu stron internetowych. S&#x105; to jednak w
+      du&#x17C;ej mierze ciekawostki. Takie decyzje podejmuje si&#x119; w specjalnych przypadkach, kiedy dla danego
+      scenariusza s&#x105; najlepsz&#x105; opcj&#x105;, lub mniejszym z&#x142;em.</p>
+    <p>Podsumowuj&#x105;c: C++ nadaje si&#x119; do wielu r&#xF3;&#x17C;nych zastosowa&#x144;, ale w rzeczywisto&#x15B;ci
+      zawsze nale&#x17C;y dobiera&#x107; narz&#x119;dzie do wykonywanej pracy. Zak&#x142;adam jednak &#x17C;e
+      jeste&#x15B; tutaj w celu nauczenia si&#x119; tego j&#x119;zyka, wi&#x119;c jakiekolwiek by twoje powody nie
+      by&#x142;y - &#x15B;mia&#x142;o kontynuuj, ale trzymaj powy&#x17C;sz&#x105; zasad&#x119; w pami&#x119;ci,
+      &#x17C;eby w przysz&#x142;o&#x15B;ci unikn&#x105;&#x107; strzelenia sobie w stop&#x119;.</p>
+    <h2 class="mume-header" id="13-cechy-j%C4%99zyka">1.3 - Cechy j&#x119;zyka</h2>
+
+    <p>Nie b&#x119;d&#x119; tutaj za mocno si&#x119; rozpisywa&#x142; od strony technicznej, poniewa&#x17C; na to
+      przyjdzie pora w trakcie kursu. Powiem jednak odrobin&#x119; o tych cechach, kt&#xF3;re mog&#x105;
+      interesowa&#x107; osob&#x119; niezaznajomion&#x105; z programowaniem lub zastanawiaj&#x105;c&#x105; si&#x119;
+      <em>&quot;czym si&#x119; r&#xF3;&#x17C;ni C++ od tego innego jezyka o kt&#xF3;rym s&#x142;ysza&#x142;em&quot;</em>
+    </p>
+    <ul>
+      <li>Mo&#x17C;na w nim pisa&#x107; ca&#x142;kiem <em>szybki</em> kod bez ogromnego nak&#x142;adu pracy - dyskusje o
+        <em>szybko&#x15B;ci</em> j&#x119;zyka i kodu s&#x105; bardzo &#x15B;liskim tematem, ze wzgl&#x119;du na
+        relatywno&#x15B;&#x107; tych szybko&#x15B;ci, ilo&#x15B;&#x107; czynnik&#xF3;w jakie si&#x119; na ni&#x105;
+        sk&#x142;adaj&#x105;, oraz ceny jaka przychodzi za ni&#x105; zap&#x142;aci&#x107;. Niemniej jednak, ze
+        wzgl&#x119;du na blisko&#x15B;&#x107; C++a do <em>metalu</em> (hardware&apos;u i systemu), fakt &#x17C;e
+        mo&#x17C;emy cz&#x119;&#x15B;&#x107; pracy programu przenie&#x15B;&#x107; w proces kompilacji (czyli generowania
+        pliku wykonywalnego z kodu) optymalizacje wprowadzane przez kompilator i ca&#x142;kiem spor&#x105;
+        ilo&#x15B;&#x107; element&#xF3;w tego j&#x119;zyka, mo&#x17C;na powiedzie&#x107; &#x17C;e C++ daje nam
+        do&#x15B;&#x107; dobry start do pisania relatywnie szybkiego i wydajnego kodu.</li>
+      <li>Ma szerok&#x105; gam&#x119; zastosowa&#x144; - jak pisa&#x142;em wy&#x17C;ej, od pisania aplikacji blisko
+        zwi&#x105;zanych z systemem operacyjnym, przez zwyk&#x142;e aplikacje desktopowe i aplikacje na telefony, po
+        programy na mikrokontrolery. Znaj&#x105;c go, mamy ca&#x142;kiem szerokie pole manewru i &#x142;atwo jest nam go
+        wstawi&#x107; do wielu r&#xF3;&#x17C;nych projekt&#xF3;w (<em>ale zaznaczam, nie zawsze jest to najlepsza
+          opcja</em>).</li>
+      <li>Pozwala nam do&#x15B;wiadczy&#x107; pisania kodu nisko-- jak i wysoko-poziomowego - Przez
+        <em>&quot;niski&quot;</em> poziom rozumiem tutaj g&#x142;&#xF3;wnie operowanie na pami&#x119;ci programu,
+        ni&#x17C;ej nie ma wi&#x119;kszego sensu schodzi&#x107; w wi&#x119;kszo&#x15B;ci przypadk&#xF3;w. Przez
+        <em>&quot;wysoki&quot;</em> poziom, rozumiem mi&#x119;dzy innymi wspieranie programowania obiektowego oraz -
+        przynajmniej w cz&#x119;&#x15B;ci - funkcyjnego, co daje nam mo&#x17C;liwo&#x15B;&#x107; uczenia si&#x119; jak
+        tworzy&#x107; wysokopoziomowy, <em>abstrakcyjny</em> kod za pomoc&#x105; tego j&#x119;zyka.</li>
+      <li>Wspiera wiele paradygmat&#xF3;w - <em>paradygmat</em> to po ch&#x142;opsku m&#xF3;wi&#x105;c <em>spos&#xF3;b
+          patrzenia na nasz kod</em>. Przyk&#x142;adowo, paradygmat obiektowy - w nim, elementy kodu to obiekty,
+        kt&#xF3;re maj&#x105; pewne cechy i w&#x142;a&#x15B;ciwo&#x15B;ci i za pomoc&#x105; kt&#xF3;rych budujemy
+        ca&#x142;y nasz kod, a w strukturalnym na przyk&#x142;ad mamy mi&#x119;dzy innymi struktury kontrolne kt&#xF3;re
+        pozwalaj&#x105; sterowa&#x107; wykonywaniem kodu. Mo&#x17C;emy zaczerpn&#x105;&#x107; ka&#x17C;dego z nich po
+        trochu, albo skupi&#x107; si&#x119; na jednym - ten j&#x119;zyk nam tego w du&#x17C;ej mierze nie ogranicza.
+      </li>
+    </ul>
+    <p>Te cztery cechy to moim zdaniem g&#x142;&#xF3;wne elementy C++a kt&#xF3;re charakteryzuj&#x105; go na tle wielu
+      innych j&#x119;zyk&#xF3;w. Jest ich co prawda znacznie wi&#x119;cej, a ka&#x17C;da z nich ma swoje wady i zalety,
+      dlatego &#x17C;eby dobrze programowa&#x107; w tym j&#x119;zyku nale&#x17C;y <em>wyczu&#x107; balans</em>
+      mi&#x119;dzy nimi i wiedziec kiedy korzysta&#x107; z kt&#xF3;rej cechy i kt&#xF3;rego elementu j&#x119;zyka, a to
+      przychodzi z do&#x15B;wiadczeniem.</p>
+    <h2 class="mume-header" id="14-co-przedstawi%C4%99-w-kursie">1.4 - Co przedstawi&#x119; w kursie?</h2>
+
+    <p>Wst&#x119;pny konspekt tego kursu powsta&#x142; ponad p&#xF3;&#x142;tora roku temu, pod koniec 2017. Znajduje
+      si&#x119; on <a href="https://github.com/SteelPh0enix/KursCPP/wiki">tutaj
+        (https://github.com/SteelPh0enix/KursCPP/wiki)</a>. Od tego czasu mia&#x142;em okazj&#x119; zapoznania si&#x119;
+      z kilkoma dodatkowymi &#x17A;r&#xF3;d&#x142;ami na temat tego jezyka i widz&#x119; &#x17C;e ten konspekt w
+      momencie pisania tego wst&#x119;pu jest na pewno za ma&#x142;o szczeg&#xF3;&#x142;owy, wi&#x119;c pozostanie
+      jedynie <em>guideline&apos;m</em> kt&#xF3;rym b&#x119;d&#x119; si&#x119; mniej-wi&#x119;cej kierowa&#x142;. Mam
+      zamiar czerpa&#x107; inspiracj&#x119; g&#x142;&#xF3;wnie z <a href="https://www.learncpp.com/">kursu
+        learncpp.com</a> (kt&#xF3;ry, swoj&#x105; drog&#x105;, gor&#x105;co polecam) i opcjonalnie ksi&#x105;&#x17C;ek
+      Bjarne Stroustrupa.</p>
+    <p>Og&#xF3;lnie m&#xF3;wi&#x105;c, zaczn&#x119; od podstawowych element&#xF3;w, absolutnie koniecznych do nauczenia
+      si&#x119; i zrozumienia, je&#x15B;li chce si&#x119; kontynuowa&#x107;. Wi&#x119;kszo&#x15B;&#x107; z nich jest
+      wsp&#xF3;lna dla wielu j&#x119;zyk&#xF3;w, wi&#x119;c po takim wst&#x119;pie przenoszenie si&#x119; na co&#x15B;
+      innego b&#x119;dzie na pewno &#x142;atwiejsze.</p>
+    <p>P&#xF3;&#x17A;niej skupi&#x119; si&#x119; na nieco bardziej zaawansowanych rzeczach, ale jednak takich kt&#xF3;re
+      s&#x105; w znacznej wi&#x119;kszo&#x15B;ci przypadk&#xF3;w wykorzystywane w programach C++owych - m&#xF3;wi&#x119;
+      o paradygmacie obiektowym oraz szablonach.</p>
+    <p>W te dwie cz&#x119;&#x15B;ci b&#x119;d&#x119; wplata&#x142; niekt&#xF3;re elementy z kolejnych, kt&#xF3;re
+      b&#x119;d&#x105; m&#xF3;wi&#x107; mi&#x119;dzy innymi o bibliotece standardowej i jeszcze bardziej zaawansowanych
+      technikach, ale tylko je&#x15B;li b&#x119;dzie to konieczne lub u&#x142;atwi tworzenie kodu.</p>
+    <p>Standardem kt&#xF3;rego planuj&#x119; si&#x119; trzyma&#x107; jest C++14, ze wzgl&#x119;du na to &#x17C;e w tej
+      chwili nie czuj&#x119; si&#x119; na tyle pewnie w standardzie C++17 &#x17C;eby m&#xF3;c go przedstawia&#x107;, ale
+      postaram si&#x119; dorzuca&#x107; ciekawoski z niego, &#x17C;eby nie pozostawa&#x107; kompletnie w tyle, a kiedy
+      uzupe&#x142;ni&#x119; swoje braki w wiedzy, postaram si&#x119; uzupe&#x142;ni&#x107; te&#x17C; kurs.</p>
+    <p>Jak wspomnia&#x142;em wy&#x17C;ej, b&#x119;d&#x119; si&#x119; opiera&#x142; na kilku r&#xF3;&#x17C;nych rodzajach
+      materia&#x142;&#xF3;w. Pe&#x142;n&#x105; list&#x119; ksi&#x105;&#x17C;ek i stron kt&#xF3;re osobi&#x15B;cie
+      polecam i z kt&#xF3;rych mam zamiar korzysta&#x107; podczas kursu, znajdziecie <a
+        href="https://github.com/SteelPh0enix/KursCPP/wiki/Materialy-do-nauki">tutaj
+        (https://github.com/SteelPh0enix/KursCPP/wiki/Materialy-do-nauki)</a></p>
+    <h2 class="mume-header" id="15-od-czego-zacz%C4%85%C4%87">1.5 - Od czego zacz&#x105;&#x107;?</h2>
+
+    <p>&#x17B;eby przygotowa&#x107; si&#x119; do nauki, nale&#x17C;y mie&#x107; gotowe &#x15B;rodowisko programistyczne
+      (IDE) lub przystosowany do edycji kodu edytor. Od siebie mog&#x119; poleci&#x107; nast&#x119;puj&#x105;ce:</p>
+    <ul>
+      <li><a href="https://visualstudio.microsoft.com/pl/downloads/">Microsoft Visual Studio - Community</a> - jest to
+        chyba najbardziej rozbudowana pozycja na li&#x15B;cie, ale ma jedn&#x105; zalet&#x119; -
+        &#x142;atwo&#x15B;&#x107; instalacji. Wystarczy pobra&#x107; instalator, zaznaczy&#x107; opcj&#x119; instalacji
+        &#x15B;rodowiska do C++ i gotowe, mamy dzia&#x142;aj&#x105;ce IDE z aktualnym kompilatorem w kt&#xF3;rym
+        mo&#x17C;emy pisa&#x107; kod. Rzecz jasna, jest ono r&#xF3;wnie&#x17C; w pe&#x142;ni darmowe.
+        <ul>
+          <li>Dla:
+            <ul>
+              <li>Os&#xF3;b kt&#xF3;re chc&#x105; czego&#x15B;, co zainstaluj&#x105; &quot;one-click&quot; i
+                b&#x119;dzie dzia&#x142;a&#x107; bez wi&#x119;kszych problem&#xF3;w, od razu</li>
+              <li>Os&#xF3;b kt&#xF3;re chc&#x105; ograniczy&#x107; proces uruchamiania programu do
+                wci&#x15B;ni&#x119;cia jednego przycisku</li>
+              <li>Os&#xF3;b kt&#xF3;re nie maj&#x105; cierpliwo&#x15B;ci do nadmiernej konfiguracji</li>
+            </ul>
+          </li>
+          <li>Nie dla:
+            <ul>
+              <li>Os&#xF3;b kt&#xF3;re nie maj&#x105; miejsca na dysku</li>
+              <li>Os&#xF3;b ze s&#x142;abszymi pecetami</li>
+              <li>Os&#xF3;b kt&#xF3;re korzystaj&#x105; z Linuxa</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="https://code.visualstudio.com/">Visual Studio Code</a> - Nie jest to IDE, lecz edytor, ale (w mojej
+        opinii) najlepiej dzia&#x142;ajacy i najbardziej rozbudowany w kwestii tworzenia kodu. Wymaga on jednak
+        r&#x119;cznej instalacji kompilatora i zabawy z r&#x119;czn&#x105; kompilacj&#x105; kodu, lub zabaw&#x105; z
+        systemami budowania, co mo&#x17C;e nie by&#x107; najergonomiczniejsze dla <em>newbie</em>, szczeg&#xF3;lnie na
+        pocz&#x105;tku, ale z drugiej strony jest do&#x15B;&#x107; lekkie i konfigurowalne oraz pozwala
+        do&#x15B;wiadczy&#x107; jak wygl&#x105;da budowanie programu z kodu. Ja w kursie b&#x119;d&#x119; si&#x119; na
+        nim opiera&#x142;, poniewa&#x17C; jest to m&#xF3;j ulubiony edytor, dlatego niech r&#x119;czna kompilacja i
+        zabawa z systemami budowania nie b&#x119;dzie ci straszna. Przynajmniej do czasu.
+        <ul>
+          <li>Dla:
+            <ul>
+              <li>Os&#xF3;b kt&#xF3;re chc&#x105; mie&#x107; jeden edytor do programowania w r&#xF3;&#x17C;nych
+                j&#x119;zykach i edycji tekstu jednocze&#x15B;nie</li>
+              <li>Os&#xF3;b kt&#xF3;re bardzo lubi&#x105; bawi&#x107; si&#x119; z konfiguracj&#x105; i dostosowywaniem
+                edytora pod siebie</li>
+              <li>Os&#xF3;b kt&#xF3;rym nie straszna jest r&#x119;czna kompilacja</li>
+              <li>Os&#xF3;b kt&#xF3;re lubi&#x105; stosunkowo lekkie, wieloplatformowe edytory</li>
+            </ul>
+          </li>
+          <li>Nie dla:
+            <ul>
+              <li>Os&#xF3;b kt&#xF3;re chc&#x105; czego&#x15B;, co zainstaluj&#x105; &quot;one-click&quot; i
+                b&#x119;dzie dzia&#x142;a&#x107; bez wi&#x119;kszych problem&#xF3;w, od razu</li>
+              <li>Os&#xF3;b kt&#xF3;re chc&#x105; mie&#x107; wszystko pod &#x142;adnie opisanymi przyciskami, a
+                najlepiej &#x17C;eby to r&#xF3;wnie&#x17C; dzia&#x142;a&#x142;o z miejsca</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="https://www.jetbrains.com/clion/">JetBrains CLion</a> - P&#x142;atne IDE, z darmow&#x105;
+        licencj&#x105; dla student&#xF3;w oraz uczni&#xF3;w. Do&#x15B;&#x107; mocno rozbudowane i bogate w
+        feature&apos;y typowe dla produkt&#xF3;w JetBrains, domy&#x15B;lnie korzysta z systemu budowania CMake
+        (kt&#xF3;ry i tak planuj&#x119; wprowadzi&#x107; w kursie, kiedy przyjdzie na to pora, wi&#x119;c nie powinno to
+        by&#x107; ogromnym zmartwieniem). Nie jestem pewny, ale chyba r&#xF3;wnie&#x17C; wymaga r&#x119;cznej instalacji
+        kompilatora, tak jak w przypadku Visual Studio Code, lecz tutaj mamy podobny workflow jak w Visual Studio
+        Community - wszystko jest &#x142;adnie dost&#x119;pne pod przyciskami
+        <ul>
+          <li>Dla:
+            <ul>
+              <li>Os&#xF3;b kt&#xF3;re chc&#x105; czego&#x15B;, co zainstaluj&#x105; &quot;one-click&quot; i
+                b&#x119;dzie dzia&#x142;a&#x107; bez wi&#x119;kszych problem&#xF3;w, od razu</li>
+              <li>Os&#xF3;b kt&#xF3;re chc&#x105; ograniczy&#x107; proces uruchamiania programu do
+                wci&#x15B;ni&#x119;cia jednego przycisku</li>
+              <li>Os&#xF3;b kt&#xF3;re chcia&#x142;y by u&#x17C;y&#x107; Visual Studio Community, ale maj&#x105; Linuxa
+              </li>
+            </ul>
+          </li>
+          <li>Nie dla:
+            <ul>
+              <li>Os&#xF3;b kt&#xF3;re nie kwalifikuj&#x105; si&#x119; do darmowego programu studenckiego/uczniowskiego
+                i nie chc&#x105; p&#x142;aci&#x107;</li>
+              <li>Os&#xF3;b ze s&#x142;abszymi pecetami</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="https://www.qt.io/download">Qt Creator</a> - Bezp&#x142;atne IDE (w wersji dla OpenSource),
+        do&#x142;&#x105;czane do frameworka Qt, lecz mo&#x17C;na zainstalowa&#x107; je osobno (wystarczy przy instalacji
+        <strong>odznaczy&#x107; wszystkie wersje Qt</strong>, i opcjonalnie <strong>zaznaczy&#x107; najnowsz&#x105;
+          wersj&#x119; toolchaina MinGW</strong>). Miewa swoje humorki z debugerem, ale og&#xF3;lnie rzecz ujmuj&#x105;c
+        jest to ca&#x142;kiem rozs&#x105;dna opcja. Wspiera Qt&apos;owski system budowania <code>qmake</code> oraz
+        CMake.
+        <ul>
+          <li>Dla:
+            <ul>
+              <li>Os&#xF3;b kt&#xF3;re chc&#x105; czego&#x15B;, co zainstaluj&#x105; &quot;one-click&quot; i
+                b&#x119;dzie dzia&#x142;a&#x107; bez wi&#x119;kszych problem&#xF3;w, od razu</li>
+              <li>Os&#xF3;b kt&#xF3;re chc&#x105; ograniczy&#x107; proces uruchamiania programu do
+                wci&#x15B;ni&#x119;cia jednego przycisku</li>
+              <li>Os&#xF3;b kt&#xF3;re nie maj&#x105; cierpliwo&#x15B;ci do nadmiernej konfiguracji</li>
+              <li>Os&#xF3;b kt&#xF3;rym nie pasuje &#x17C;adna z poprzednich opcji</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p>Dodatkowe IDE, kt&#xF3;rych kiedy&#x15B; u&#x17C;ywa&#x142;em a kt&#xF3;re teraz postawi&#x142;bym pod znakiem
+      zapytania to</p>
+    <ul>
+      <li><strong>Code::Blocks</strong> - niestety, jest to ju&#x17C; do&#x15B;&#x107; wiekowy program i nie jest on
+        mimo wszystko - moim zdaniem - dobrym wyborem na start, biorac pod uwag&#x119; ilo&#x15B;&#x107; alternatywnych
+        rozwi&#x105;za&#x144; na ten moment. G&#x142;&#xF3;wn&#x105; jego wad&#x105; jest brak sensownego wsparcia
+        debugera, co w przysz&#x142;o&#x15B;ci mo&#x17C;e bardzo mocno bole&#x107;, oraz fakt &#x17C;e
+        do&#x142;&#x105;czany do zestawu kompilator robi si&#x119; nieco przestarza&#x142;y, a i opcje trzeba nieco
+        &quot;tweakowa&#x107;&quot; &#x17C;eby by&#x107; z nim na czasie.</li>
+      <li><strong>CodeLite</strong> - W teorii bardzo fajnie wygl&#x105;daj&#x105;ce IDE, w praktyce ci&#x119;&#x17C;ko
+        mi by&#x142;o je zmusi&#x107; do dzia&#x142;ania. Pozostawiam jako ciekawostk&#x119;, mo&#x17C;e kto&#x15B;
+        b&#x119;dzie mia&#x142; do niego wi&#x119;cej szcz&#x119;&#x15B;cia ni&#x17C; ja</li>
+    </ul>
+    <p>Na koniec, dodam jeszcze IDE o kt&#xF3;rych wiem &#x17C;e s&#x105; popularne i nadal u&#x17C;ywane, ale moim
+      zdaniem nie warte uwagi z kilku wzgl&#x119;d&#xF3;w.</p>
+    <ul>
+      <li><strong>Dev-C++</strong> - lista wad jest d&#x142;uga, od przestarza&#x142;ego desingu, przez znacznie
+        przestarza&#x142;y kompilator oraz domy&#x15B;lne opcje, po r&#xF3;&#x17C;ne cuda na kiju kt&#xF3;re
+        widzia&#x142;em z jego udzia&#x142;em, pokroju niech&#x119;ci do kompilowania dobrze napisanego kodu.
+        Zdaj&#x119; sobie spraw&#x119; &#x17C;e jest u&#x17C;ywany nadal w wielu szko&#x142;ach i uczelniach, ale
+        sugeruj&#x119; jednak zmian&#x119; - nie ma sensu by&#x107; masochist&#x105;.</li>
+      <li><strong>Borland C++ Builder</strong> - Przestarza&#x142;e i kompletnie martwe na rynku, w wersji 2003,
+        kt&#xF3;ra by&#x142;a popularyzowana przez pewien alternatywny kurs C++a. Je&#x15B;li potrzebujesz czego&#x15B;
+        w czym b&#x119;dziesz w stanie zamodelowa&#x107; GUI, masz Qt Creatora.</li>
+      <li><strong>Eclipse IDE</strong> - Lekko masochistyczny design, do&#x15B;&#x107; wiekowe, ci&#x119;&#x17C;ko mi
+        si&#x119; do niego by&#x142;o przyzwyczai&#x107; i z niego korzysta&#x107;. Moim zdaniem istniej&#x105; znacznie
+        lepsze alternatywy do czystego C++a, nadal jednak znajduje nisze w embedded (istniej&#x105; specjalne wersje
+        przystosowane do programowania na dane platformy)</li>
+    </ul>
+    <p>Rzecz jasna jest znacznie wi&#x119;cej IDE oraz edytor&#xF3;w na rynku, wi&#x119;c ta lista nie jest
+      jak&#x105;&#x15B; &quot;Ostateczn&#x105; List&#x105; Najlepszych IDE Na Rynku&quot;, jest bazowana na moich
+      preferencjach i do&#x15B;wiadczeniach. Je&#x15B;li &#x17C;adna z opcji Ci nie pasuje, nie kr&#x119;puj si&#x119; i
+      poszukaj czego&#x15B; alternatywnego dla siebie.</p>
+    <p><a href="02_wprowadzenie_do_jezyka.html">Przejd&#x17A; do nast&#x119;pnej cz&#x119;&#x15B;ci</a></p>
+    <footer>
+      <div class="icon-note">Icons made by <a
+          href="https://www.freepik.com/?__hstc=57440181.62de920952d43b5ea5ff0838a1446c52.1560614074398.1560614074398.1560614074398.1&amp;__hssc=57440181.4.1560614074398&amp;__hsfp=3655662182"
+          title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> are
+        licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+          target="_blank">CC 3.0 BY</a></div>
+      <div class="copyright-note">Autorskie media (obrazy, animacje, d&#x17A;wi&#x119;ki, etc.) udost&#x119;pniane pod
+        licencj&#x105; CC BY-NC 4.0.
+        <br>
+        Tekst oraz kod udost&#x119;pniany pod licencj&#x105; Apache 2.0</div>
+    </footer>
+  </div>
 
 
 

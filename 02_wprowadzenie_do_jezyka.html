@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Kurs C++: 02 - Wprowadzenie do języka</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+
+
+
+
+
+
+
+
+
+
+  <style>
+    /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+    code[class*="language-"],
+    pre[class*="language-"] {
+      color: #333;
+      background: none;
+      font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      line-height: 1.4;
+
+      -moz-tab-size: 8;
+      -o-tab-size: 8;
+      tab-size: 8;
+
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+    }
+
+    /* Code blocks */
+    pre[class*="language-"] {
+      padding: .8em;
+      overflow: auto;
+      /* border: 1px solid #ddd; */
+      border-radius: 3px;
+      /* background: #fff; */
+      background: #f5f5f5;
+    }
+
+    /* Inline code */
+    :not(pre)>code[class*="language-"] {
+      padding: .1em;
+      border-radius: .3em;
+      white-space: normal;
+      background: #f5f5f5;
+    }
+
+    .token.comment,
+    .token.blockquote {
+      color: #969896;
+    }
+
+    .token.cdata {
+      color: #183691;
+    }
+
+    .token.doctype,
+    .token.punctuation,
+    .token.variable,
+    .token.macro.property {
+      color: #333;
+    }
+
+    .token.operator,
+    .token.important,
+    .token.keyword,
+    .token.rule,
+    .token.builtin {
+      color: #a71d5d;
+    }
+
+    .token.string,
+    .token.url,
+    .token.regex,
+    .token.attr-value {
+      color: #183691;
+    }
+
+    .token.property,
+    .token.number,
+    .token.boolean,
+    .token.entity,
+    .token.atrule,
+    .token.constant,
+    .token.symbol,
+    .token.command,
+    .token.code {
+      color: #0086b3;
+    }
+
+    .token.tag,
+    .token.selector,
+    .token.prolog {
+      color: #63a35c;
+    }
+
+    .token.function,
+    .token.namespace,
+    .token.pseudo-element,
+    .token.class,
+    .token.class-name,
+    .token.pseudo-class,
+    .token.id,
+    .token.url-reference .token.variable,
+    .token.attr-name {
+      color: #795da3;
+    }
+
+    .token.entity {
+      cursor: help;
+    }
+
+    .token.title,
+    .token.title .token.punctuation {
+      font-weight: bold;
+      color: #1d3e81;
+    }
+
+    .token.list {
+      color: #ed6a43;
+    }
+
+    .token.inserted {
+      background-color: #eaffea;
+      color: #55a532;
+    }
+
+    .token.deleted {
+      background-color: #ffecec;
+      color: #bd2c00;
+    }
+
+    .token.bold {
+      font-weight: bold;
+    }
+
+    .token.italic {
+      font-style: italic;
+    }
+
+
+    /* JSON */
+    .language-json .token.property {
+      color: #183691;
+    }
+
+    .language-markup .token.tag .token.punctuation {
+      color: #333;
+    }
+
+    /* CSS */
+    code.language-css,
+    .language-css .token.function {
+      color: #0086b3;
+    }
+
+    /* YAML */
+    .language-yaml .token.atrule {
+      color: #63a35c;
+    }
+
+    code.language-yaml {
+      color: #183691;
+    }
+
+    /* Ruby */
+    .language-ruby .token.function {
+      color: #333;
+    }
+
+    /* Markdown */
+    .language-markdown .token.url {
+      color: #795da3;
+    }
+
+    /* Makefile */
+    .language-makefile .token.symbol {
+      color: #795da3;
+    }
+
+    .language-makefile .token.variable {
+      color: #183691;
+    }
+
+    .language-makefile .token.builtin {
+      color: #0086b3;
+    }
+
+    /* Bash */
+    .language-bash .token.keyword {
+      color: #0086b3;
+    }
+
+    /* highlight */
+    pre[data-line] {
+      position: relative;
+      padding: 1em 0 1em 3em;
+    }
+
+    pre[data-line] .line-highlight-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      display: block;
+      width: 100%;
+    }
+
+    pre[data-line] .line-highlight {
+      position: absolute;
+      left: 0;
+      right: 0;
+      padding: inherit 0;
+      margin-top: 1em;
+      background: hsla(24, 20%, 50%, .08);
+      background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+      pointer-events: none;
+      line-height: inherit;
+      white-space: pre;
+    }
+
+    pre[data-line] .line-highlight:before,
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-start);
+      position: absolute;
+      top: .4em;
+      left: .6em;
+      min-width: 1em;
+      padding: 0 .5em;
+      background-color: hsla(24, 20%, 50%, .4);
+      color: hsl(24, 20%, 95%);
+      font: bold 65%/1.5 sans-serif;
+      text-align: center;
+      vertical-align: .3em;
+      border-radius: 999px;
+      text-shadow: none;
+      box-shadow: 0 1px white;
+    }
+
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-end);
+      top: auto;
+      bottom: .4em;
+    }
+
+    html body {
+      font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow: initial;
+      box-sizing: border-box;
+      word-wrap: break-word
+    }
+
+    html body>:first-child {
+      margin-top: 0
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5,
+    html body h6 {
+      line-height: 1.2;
+      margin-top: 1em;
+      margin-bottom: 16px;
+      color: #000
+    }
+
+    html body h1 {
+      font-size: 2.25em;
+      font-weight: 300;
+      padding-bottom: .3em
+    }
+
+    html body h2 {
+      font-size: 1.75em;
+      font-weight: 400;
+      padding-bottom: .3em
+    }
+
+    html body h3 {
+      font-size: 1.5em;
+      font-weight: 500
+    }
+
+    html body h4 {
+      font-size: 1.25em;
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1.1em;
+      font-weight: 600
+    }
+
+    html body h6 {
+      font-size: 1em;
+      font-weight: 600
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5 {
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1em
+    }
+
+    html body h6 {
+      color: #5c5c5c
+    }
+
+    html body strong {
+      color: #000
+    }
+
+    html body del {
+      color: #5c5c5c
+    }
+
+    html body a:not([href]) {
+      color: inherit;
+      text-decoration: none
+    }
+
+    html body a {
+      color: #08c;
+      text-decoration: none
+    }
+
+    html body a:hover {
+      color: #00a3f5;
+      text-decoration: none
+    }
+
+    html body img {
+      max-width: 100%
+    }
+
+    html body>p {
+      margin-top: 0;
+      margin-bottom: 16px;
+      word-wrap: break-word
+    }
+
+    html body>ul,
+    html body>ol {
+      margin-bottom: 16px
+    }
+
+    html body ul,
+    html body ol {
+      padding-left: 2em
+    }
+
+    html body ul.no-list,
+    html body ol.no-list {
+      padding: 0;
+      list-style-type: none
+    }
+
+    html body ul ul,
+    html body ul ol,
+    html body ol ol,
+    html body ol ul {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body li {
+      margin-bottom: 0
+    }
+
+    html body li.task-list-item {
+      list-style: none
+    }
+
+    html body li>p {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body .task-list-item-checkbox {
+      margin: 0 .2em .25em -1.8em;
+      vertical-align: middle
+    }
+
+    html body .task-list-item-checkbox:hover {
+      cursor: pointer
+    }
+
+    html body blockquote {
+      margin: 16px 0;
+      font-size: inherit;
+      padding: 0 15px;
+      color: #5c5c5c;
+      border-left: 4px solid #d6d6d6
+    }
+
+    html body blockquote>:first-child {
+      margin-top: 0
+    }
+
+    html body blockquote>:last-child {
+      margin-bottom: 0
+    }
+
+    html body hr {
+      height: 4px;
+      margin: 32px 0;
+      background-color: #d6d6d6;
+      border: 0 none
+    }
+
+    html body table {
+      margin: 10px 0 15px 0;
+      border-collapse: collapse;
+      border-spacing: 0;
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+      word-break: keep-all
+    }
+
+    html body table th {
+      font-weight: bold;
+      color: #000
+    }
+
+    html body table td,
+    html body table th {
+      border: 1px solid #d6d6d6;
+      padding: 6px 13px
+    }
+
+    html body dl {
+      padding: 0
+    }
+
+    html body dl dt {
+      padding: 0;
+      margin-top: 16px;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: bold
+    }
+
+    html body dl dd {
+      padding: 0 16px;
+      margin-bottom: 16px
+    }
+
+    html body code {
+      font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+      font-size: .85em !important;
+      color: #000;
+      background-color: #f0f0f0;
+      border-radius: 3px;
+      padding: .2em 0
+    }
+
+    html body code::before,
+    html body code::after {
+      letter-spacing: -0.2em;
+      content: "\00a0"
+    }
+
+    html body pre>code {
+      padding: 0;
+      margin: 0;
+      font-size: .85em !important;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0
+    }
+
+    html body .highlight {
+      margin-bottom: 16px
+    }
+
+    html body .highlight pre,
+    html body pre {
+      padding: 1em;
+      overflow: auto;
+      font-size: .85em !important;
+      line-height: 1.45;
+      border: #d6d6d6;
+      border-radius: 3px
+    }
+
+    html body .highlight pre {
+      margin-bottom: 0;
+      word-break: normal
+    }
+
+    html body pre code,
+    html body pre tt {
+      display: inline;
+      max-width: initial;
+      padding: 0;
+      margin: 0;
+      overflow: initial;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: transparent;
+      border: 0
+    }
+
+    html body pre code:before,
+    html body pre tt:before,
+    html body pre code:after,
+    html body pre tt:after {
+      content: normal
+    }
+
+    html body p,
+    html body blockquote,
+    html body ul,
+    html body ol,
+    html body dl,
+    html body pre {
+      margin-top: 0;
+      margin-bottom: 16px
+    }
+
+    html body kbd {
+      color: #000;
+      border: 1px solid #d6d6d6;
+      border-bottom: 2px solid #c7c7c7;
+      padding: 2px 4px;
+      background-color: #f0f0f0;
+      border-radius: 3px
+    }
+
+    @media print {
+      html body {
+        background-color: #fff
+      }
+
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        color: #000;
+        page-break-after: avoid
+      }
+
+      html body blockquote {
+        color: #5c5c5c
+      }
+
+      html body pre {
+        page-break-inside: avoid
+      }
+
+      html body table {
+        display: table
+      }
+
+      html body img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%
+      }
+
+      html body pre,
+      html body code {
+        word-wrap: break-word;
+        white-space: pre
+      }
+    }
+
+    .markdown-preview {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box
+    }
+
+    .markdown-preview .pagebreak,
+    .markdown-preview .newpage {
+      page-break-before: always
+    }
+
+    .markdown-preview pre.line-numbers {
+      position: relative;
+      padding-left: 3.8em;
+      counter-reset: linenumber
+    }
+
+    .markdown-preview pre.line-numbers>code {
+      position: relative
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows {
+      position: absolute;
+      pointer-events: none;
+      top: 1em;
+      font-size: 100%;
+      left: 0;
+      width: 3em;
+      letter-spacing: -1px;
+      border-right: 1px solid #999;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span {
+      pointer-events: none;
+      display: block;
+      counter-increment: linenumber
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span:before {
+      content: counter(linenumber);
+      color: #999;
+      display: block;
+      padding-right: .8em;
+      text-align: right
+    }
+
+    .markdown-preview .mathjax-exps .MathJax_Display {
+      text-align: center !important
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .btn-group {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .status {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .output-div {
+      margin-bottom: 16px
+    }
+
+    .scrollbar-style::-webkit-scrollbar {
+      width: 8px
+    }
+
+    .scrollbar-style::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    .scrollbar-style::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      overflow: auto
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+      position: relative;
+      top: 0
+    }
+
+    @media screen and (min-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em calc(50% - 457px + 2em)
+      }
+    }
+
+    @media screen and (max-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        font-size: 14px !important;
+        padding: 1em
+      }
+    }
+
+    @media print {
+      html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+        display: none
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+      position: fixed;
+      bottom: 8px;
+      left: 8px;
+      font-size: 28px;
+      cursor: pointer;
+      color: inherit;
+      z-index: 99;
+      width: 32px;
+      text-align: center;
+      opacity: .4
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
+      opacity: 1
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100%;
+      padding: 32px 0 48px 0;
+      font-size: 14px;
+      box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+      box-sizing: border-box;
+      overflow: auto;
+      background-color: inherit
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar {
+      width: 8px
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a {
+      text-decoration: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      padding: 0 1.6em;
+      margin-top: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li {
+      margin-bottom: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      list-style-type: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+      left: 300px;
+      width: calc(100% - 300px);
+      padding: 2em calc(50% - 457px - 150px);
+      margin: 0;
+      box-sizing: border-box
+    }
+
+    @media screen and (max-width:1274px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        width: 100%
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
+      left: 50%;
+      transform: translateX(-50%)
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
+      display: none
+    }
+
+    .markdown-preview.markdown-preview {
+      left: 0 !important;
+      transform: none !important;
+      font-family: 'Fira Sans', sans-serif;
+      background-color: #222222;
+      color: #aaaaaa;
+    }
+
+    .markdown-preview.markdown-preview strong {
+      color: #bbbbbb;
+    }
+
+    .markdown-preview.markdown-preview .media-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .markdown-preview.markdown-preview .media-img {
+      height: 40px;
+    }
+
+    .markdown-preview.markdown-preview h1,
+    .markdown-preview.markdown-preview h2,
+    .markdown-preview.markdown-preview h3,
+    .markdown-preview.markdown-preview h4,
+    .markdown-preview.markdown-preview h5,
+    .markdown-preview.markdown-preview h6 {
+      color: #bbbbbb;
+    }
+
+    .markdown-preview.markdown-preview a {
+      color: #df6400;
+    }
+
+    .markdown-preview.markdown-preview footer {
+      font-size: 75%;
+    }
+
+    .markdown-preview.markdown-preview pre,
+    .markdown-preview.markdown-preview code {
+      font-family: 'Fira Mono', monospace;
+      background-color: #363636;
+      color: #c5c5c5;
+    }
+
+    .markdown-preview.markdown-preview pre .punctuation,
+    .markdown-preview.markdown-preview code .punctuation {
+      color: #e48f3f;
+    }
+
+    .markdown-preview.markdown-preview pre .operator,
+    .markdown-preview.markdown-preview code .operator {
+      color: #ffc038;
+    }
+
+    .markdown-preview.markdown-preview pre .macro,
+    .markdown-preview.markdown-preview code .macro,
+    .markdown-preview.markdown-preview pre .directive,
+    .markdown-preview.markdown-preview code .directive,
+    .markdown-preview.markdown-preview pre .macro>.string,
+    .markdown-preview.markdown-preview code .macro>.string {
+      color: #00b43c !important;
+    }
+
+    .markdown-preview.markdown-preview pre .function,
+    .markdown-preview.markdown-preview code .function {
+      color: #ff6b58;
+    }
+
+    .markdown-preview.markdown-preview pre .keyword,
+    .markdown-preview.markdown-preview code .keyword {
+      color: #e8eb56;
+    }
+
+    .markdown-preview.markdown-preview pre .string,
+    .markdown-preview.markdown-preview code .string {
+      color: #64cce6;
+    }
+  </style>
+</head>
+
+<body for="html-export">
+  <div class="mume markdown-preview  ">
+    <h1 class="mume-header undefined" id="kurs-j%C4%99zyka-c">Kurs j&#x119;zyka C++</h1>
+
+    <h2 class="mume-header undefined" id="rozdzia%C5%82-2-wprowadzenie-do-j%C4%99zyka">Rozdzia&#x142; 2: Wprowadzenie do
+      j&#x119;zyka</h2>
+
+    <p>Autor: Wojciech Olech</p>
+    <p><a href="01_wstep.html">Wr&#xF3;&#x107; do poprzedniej cz&#x119;&#x15B;ci</a> | Przejd&#x17A; do nast&#x119;pnej
+      cz&#x119;&#x15B;ci</p>
+    <div class="media-row">
+      <a href="https://www.facebook.com/steelph0en1x"><img class="media-img" src="img/facebook.png"></a>
+      <a href="https://www.youtube.com/channel/UCNbZooiWSOeu28mmOLCgQ2w"><img class="media-img"
+          src="img/youtube.png"></a>
+      <a href="https://twitter.com/steel_ph0enix"><img class="media-img" src="img/twitter.png"></a>
+      <a href="https://github.com/SteelPh0enix"><img class="media-img" src="img/github.png"></a>
+    </div>
+    <h2 class="mume-header undefined" id="spis-tre%C5%9Bci">Spis tre&#x15B;ci</h2>
+
+    <ul>
+      <li><a href="#21-tworzenie-program%C3%B3w-cowych">2.1: Tworzenie program&#xF3;w C++owych</a>
+        <ul>
+          <li><a href="#211-dodatkowe-flagi-b%C5%82%C4%99d%C3%B3w">2.1.1: Dodatkowe flagi b&#x142;&#x119;d&#xF3;w</a>
+            <ul>
+              <li><a href="#2111-visual-studio-community-2019">2.1.1.1: Visual Studio Community 2019</a></li>
+              <li><a href="#2112-jetbrains-clion-oraz-qt-creator-cmake">2.1.1.2: JetBrains CLion oraz Qt Creator
+                  (CMake)</a></li>
+              <li><a href="#2113-visual-studio-code-kompilacja-r%C4%99czna">2.1.1.3: Visual Studio Code (kompilacja
+                  r&#x119;czna)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#22-hello-world">2.2: Hello, world!</a></li>
+    </ul>
+    <h2 class="mume-header" id="21-tworzenie-program%C3%B3w-cowych">2.1: Tworzenie program&#xF3;w C++owych</h2>
+
+    <p>W poprzedniej cz&#x119;&#x15B;ci kursu przedstawi&#x142;em kilka &#x15B;rodowisk (oraz edytor), kt&#xF3;re
+      pozwalaj&#x105; na pisanie program&#xF3;w w tytu&#x142;owym j&#x119;zyku. Narz&#x119;dzia te pozwalaj&#x105; na
+      tworzenie z kodu plik&#xF3;w wykonywalnych, kt&#xF3;re mo&#x17C;emy uruchomi&#x107; na komputerze. A wi&#x119;c
+      jak to si&#x119; dzieje, &#x17C;e nasz kod jest zamieniany na program? I dlaczego nie mo&#x17C;emy od razu
+      uruchomi&#x107; kodu, bez dodatkowych narz&#x119;dzi?</p>
+    <p>Odpowied&#x17A; na drugie pytanie brzmi <strong>&quot;Poniewa&#x17C; C++ jest j&#x119;zykiem
+        kompilowanym&quot;</strong>. Istnieje kilka rodzaj&#xF3;w j&#x119;zyk&#xF3;w programowania, niekt&#xF3;re -
+      nazywane j&#x119;zykami interpretowanymi - s&#x105; wykonywane bezpo&#x15B;rednio przez program nazywany
+      <strong>interpreterem</strong>, kt&#xF3;remu podaje si&#x119; kod a on wykonuje polecenia w nim zawarte.
+      Przyk&#x142;adami takich j&#x119;zyk&#xF3;w s&#x105; na przyk&#x142;ad Python oraz JavaScript. J&#x119;zyk C++
+      zalicza si&#x119; do drugiego rodzaju, <strong>j&#x119;zyk&#xF3;w kompilowanych</strong>. Takie j&#x119;zyki
+      wymagaj&#x105; uprzedniego t&#x142;umaczenia na <strong>kod maszynowy</strong>, czyli instrukcje
+      bezpo&#x15B;rednio zrozumia&#x142;e dla komputera.</p>
+    <p>T&#x142;umaczenie kodu na plik wykonywalny to proces kt&#xF3;ry nazywa si&#x119;
+      <strong>kompilacj&#x105;</strong>. Do kompilacji jest nam potrzebny <strong>toolchain</strong>, czyli kompilator
+      wraz z paroma dodatkowymi programami z kt&#xF3;rych korzysta &#x17C;eby wygenerowa&#x107; plik wykonywalny.
+      Najbardziej popularnymi toolchainami do j&#x119;zyka C++ s&#x105; <em>GCC</em>, <em>MinGW</em> (port GCC dla
+      Windowsa), <em>MSVC</em> (Microsoft Visual C++) oraz <em>Clang</em>.</p>
+    <p>IDE zazwyczaj u&#x142;atwiaj&#x105; obs&#x142;ug&#x119; kompilatora - przyciski w GUI pozwalaj&#x105; na
+      budowanie (kompilacj&#x119;) programu oraz go uruchamianie, nie musimy si&#x119; interesowa&#x107; co si&#x119;
+      dzieje pod spodem - przynajmniej do czasu. <strong>Je&#x15B;li korzystasz z IDE (Visual Studio, CLion, Qt Creator
+        lub dowolne inne) to nie musisz interesowa&#x107; si&#x119; ni&#x17C;ej opisanym procesem r&#x119;cznej
+        kompilacji. Sugeruj&#x119; jednak przeczyta&#x107; akapit &quot;Dodatkowe flagi
+        b&#x142;&#x119;d&#xF3;w&quot;</strong></p>
+    <p>Je&#x15B;li korzystamy z czystego edytora, to b&#x119;dziemy musieli samodzielnie kompilowa&#x107; program lub
+      u&#x17C;y&#x107; plug-inu do tego. W kursie korzystam z Visual Studio Code i b&#x119;d&#x119; kompilowa&#x107;
+      proste programy r&#x119;cznie, ale p&#xF3;&#x17A;niej przejdziemy do nauki CMake - systemu budowania kt&#xF3;ry
+      u&#x142;atwi tworzenie projekt&#xF3;w C++owch.</p>
+    <p>&#x17B;eby skompilowa&#x107; program z u&#x17C;yciem toolchaina MinGW lub GCC, nale&#x17C;y wywo&#x142;a&#x107;
+      program <code>g++</code> z linii polece&#x144;, z odpowiednimi argumentami. Przyk&#x142;adowo</p>
+    <pre data-role="codeBlock" data-info="cmd" class="language-cmd"><code>g++ program.cpp -o program.exe
+</code></pre>
+    <p>oznacza <em>&quot;Skompiluj plik program.cpp i wynik wypluj do pliku program.exe&quot;</em>. Je&#x15B;li nie
+      podamy parametru <code>-o nazwaprogramu.exe</code>, to domy&#x15B;lnie program b&#x119;dzie mie&#x107; nazw&#x119;
+      <code>a.exe</code></p>
+    <h3 class="mume-header" id="211-dodatkowe-flagi-b%C5%82%C4%99d%C3%B3w">2.1.1: Dodatkowe flagi
+      b&#x142;&#x119;d&#xF3;w</h3>
+
+    <p>Dodatkowo, mo&#x17C;emy kaza&#x107; kompilatorowi dok&#x142;adniej sprawdza&#x107; nasz kod przed jego
+      kompilacj&#x105;, co do&#x15B;&#x107; cz&#x119;sto pozwala diagnozowa&#x107; niewidoczne na pierwszy rzut oka
+      b&#x142;&#x119;dy, kt&#xF3;re mog&#x105; by&#x107; do&#x15B;&#x107; ci&#x119;&#x17C;kie do znalezienia i
+      naprawienia dla niewprawionego programisty. Dlatego polecam zmieni&#x107; domy&#x15B;lny poziom
+      ostrze&#x17C;e&#x144; dla projekt&#xF3;w. Poni&#x17C;ej zamieszcam instrukcje jak to zrobi&#x107;, dla IDE i
+      edytor&#xF3;w kt&#xF3;re poleca&#x142;em w pierwszej cz&#x119;&#x15B;ci.</p>
+    <h4 class="mume-header" id="2111-visual-studio-community-2019">2.1.1.1: Visual Studio Community 2019</h4>
+
+    <p>W Visual Studio,ustawienia tej opcji mo&#x17C;na znale&#x17A;&#x107; klikaj&#x105;c prawym przyciskiem na
+      projekt, wchodz&#x105;c we <em>&quot;W&#x142;a&#x15B;ciwo&#x15B;ci&quot;</em>, a nast&#x119;pnie w
+      zak&#x142;adk&#x119; <em>&quot;C/C++ -&gt; Og&#xF3;lne&quot;</em>. Interesuje nas opcja <em>&quot;Poziom
+        ostrze&#x17C;e&#x144;&quot;</em>. Ja u&#x17C;ywam W4, poniewa&#x17C; <a
+        href="https://docs.microsoft.com/en-us/cpp/build/reference/compiler-option-warning-level">jest to zalecany przez
+        Microsoft poziom ostrze&#x17C;e&#x144; dla nowych projekt&#xF3;w</a>.</p>
+    <p><img src="img/02/vs_project_properties.png" alt="Ustawienia projektu"><br>
+      <img src="img/02/vs_warning_levels.png" alt="Ustawienia poziomu ostrze&#x17C;e&#x144;"></p>
+    <p>Nale&#x17C;y pami&#x119;ta&#x107;, &#x17C;e zostanie to ustawione tylko dla aktualnie obowi&#x105;zuj&#x105;cej
+      konfiguracji (widocznej na g&#xF3;rze okienka ustawie&#x144; projektu - u mnie, Debug/x64). Je&#x15B;li chcemy
+      &#x17C;eby obowi&#x105;zywa&#x142;o to dla ca&#x142;ego projektu, niezale&#x17C;nie od konfiguracji, nale&#x17C;y
+      zmieni&#x107; te opcje na &quot;Wszystkie konfiguracje/Wszystkie platformy&quot; i dopiero wtedy zmieni&#x107;
+      ustawienia poziomu ostrze&#x17C;e&#x144;.</p>
+    <p><img src="img/02/vs_all_configs.png" alt="Ustawienia konfiguracji"></p>
+    <h4 class="mume-header" id="2112-jetbrains-clion-oraz-qt-creator-cmake">2.1.1.2: JetBrains CLion oraz Qt Creator
+      (CMake)</h4>
+
+    <p>W &#x15B;rodowisku CLion i Qt Creator korzystamy z CMake, dlatego instrukcja dla nich b&#x119;dzie taka sama.
+      <strong>Zak&#x142;adam &#x17C;e skonfigurowany toolchain to MinGW lub GCC, a nie MSVC!</strong></p>
+    <p>Otwieramy plik CMakeLists.txt i pod linijk&#x105; z funkcj&#x105; <code>add_executable</code> dodajemy</p>
+    <pre data-role="codeBlock" data-info="cmake" class="language-cmake"><code>target_compile_options(nazwapliku PRIVATE -Wall -Wextra -Wpedantic)
+</code></pre>
+    <p><code>-Wall -Wextra -Wpedantic</code> to trzy flagi kt&#xF3;re uruchamiaj&#x105; prawie najwy&#x17C;szy poziom
+      sprawdzania b&#x142;&#x119;d&#xF3;w w toolchainie MinGW i GCC.</p>
+    <p>Gdzie pod <code>nazwapliku</code> wstawiamy <strong>pierwszy argument podany do funkcji
+        <code>add_executable</code></strong>, czyli. <strong>nazw&#x119; pliku wykonywalnego</strong> bez rozszerzenia.
+    </p>
+    <p>Przyk&#x142;adowy plik CMakeLists.txt:</p>
+    <pre data-role="codeBlock" data-info="cmake" class="language-cmake"><code>cmake_minimum_required(VERSION 3.14)
+project(HelloWorld)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(hello main.cpp)
+target_compile_options(hello PRIVATE -Wall -Wextra -Wpedantic)
+</code></pre>
+    <p><em>Je&#x15B;li korzystamy z toolchaina MSVC, to flagi <code>-Wall -Wextra -Wpedantic</code> nale&#x17C;y
+        zamieni&#x107; na <code>/W4 /WX</code></em>.</p>
+    <h4 class="mume-header" id="2113-visual-studio-code-kompilacja-r%C4%99czna">2.1.1.3: Visual Studio Code (kompilacja
+      r&#x119;czna)</h4>
+
+    <p>Tutaj sytuacja b&#x119;dzie wygl&#x105;da&#x107; nieco podobnie jak w CMake, ale flagi podamy bezpo&#x15B;rednio
+      poprzez lini&#x119; polece&#x144;. &#x17B;eby skompilowa&#x107; program z rozszerzonym sprawdzaniem kodu,
+      u&#x17C;ywamy polecenia</p>
+    <pre data-role="codeBlock" data-info="cmd" class="language-cmd"><code>g++ -Wall -Wextra -Wpedantic program.cpp -o program.exe
+</code></pre>
+    <p>Gdzie, rzecz jasna, zamieniamy <code>program.cpp</code> na nazw&#x119; swojego pliku z kodem, a
+      <code>program.exe</code> na nazw&#x119; pliku wykonywalnego jaki chcemy dosta&#x107;.</p>
+    <p>W sam szczeg&#xF3;&#x142;y procesu kompilacji i to co si&#x119; w nim dzieje zag&#x142;&#x119;bimy si&#x119; w
+      p&#xF3;&#x17A;niejszej cz&#x119;&#x15B;ci kursu, poniewa&#x17C; nie jest on w tej chwili istotny.</p>
+    <h2 class="mume-header" id="22-hello-world">2.2: Hello, world!</h2>
+
+    <p>Naszym pierwszym programem b&#x119;dzie typowy <em>&quot;Hello, world!&quot;</em>, program kt&#xF3;rego jedynym
+      zadaniem b&#x119;dzie wypisanie tej sentencji na ekranie w celu sprawdzenia czy nasze &#x15B;rodowisko
+      dzia&#x142;a poprawnie. Mo&#x17C;e on wygl&#x105;da&#x107; nast&#x119;puj&#x105;co:</p>
+    <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hello, world!\n&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre>
+    <p>Je&#x15B;li jeste&#x15B;my w stanie go skompilowa&#x107; i uruchomi&#x107;, to oznacza &#x17C;e nasze
+      &#x15B;rodowisko powinno dzia&#x142;a&#x107; poprawnie.</p>
+    <p>Co sk&#x142;ada si&#x119; na ten programik?</p>
+    <ul>
+      <li>
+        <p><code>#include &lt;iostream&gt;</code> - <code>#include</code> to polecenie kt&#xF3;re do&#x142;&#x105;cza
+          podany plik z kodem do aktualnego pliku. <code>iostream</code> to biblioteka, kt&#xF3;ra zawiera
+          narz&#x119;dzia do pracy ze <em>strumieniami wej&#x15B;cia i wyj&#x15B;cia</em>, my u&#x17C;ywamy
+          <code>std::cout</code> kt&#xF3;ry pozwala wypisywa&#x107; tekst na wyj&#x15B;cie konsoli.</p>
+      </li>
+      <li>
+        <p><code>int main()</code> - jest to definicja funkcji <code>main</code>. Funkcja <code>main</code> to punkt
+          startowy ka&#x17C;dego programu (tzw. <em>entry point</em>), od niej program zaczyna si&#x119; wykonywa&#x107;
+          i bez niej nie b&#x119;dziemy w stanie go skompilowa&#x107;. Cia&#x142;o (zawarto&#x15B;&#x107;, kod) funkcji
+          jest zawarte w klamrach <code>{}</code>.</p>
+      </li>
+      <li>
+        <p><code>std::cout &lt;&lt; &quot;Hello, world!\n&quot;;</code> - To wyra&#x17C;enie wypisuje nam tekst
+          <code>Hello, world!</code> na terminal.</p>
+        <ul>
+          <li><code>std::cout</code> to <em>strumie&#x144; wyj&#x15B;cia</em>, czyli obiekt za pomoc&#x105; kt&#xF3;rego
+            mo&#x17C;emy wypisywa&#x107; dane do terminala. &#x17B;eby to zrobi&#x107;, u&#x17C;ywamy <em>operatora
+              <code>&lt;&lt;</code></em>, za kt&#xF3;rym umieszczamy dane kt&#xF3;re chcemy zobaczy&#x107; w terminalu.
+          </li>
+          <li><code>&quot;Hello, world!\n&quot;</code> to <em>&#x142;a&#x144;cuch znak&#xF3;w</em>, czyli po prostu
+            tekst. W j&#x119;zyku C++ tekst nale&#x17C;y trzyma&#x107; w podw&#xF3;jnych cudzys&#x142;owiach
+            (<code>&quot;&quot;</code>).<br>
+            Zauwa&#x17C;, &#x17C;e na ko&#x144;cu znajduje si&#x119; <code>\n</code> - nie jest to jednak wypisywane w
+            konsoli, kiedy uruchamiasz program. Dzieje si&#x119; tak dlatego, &#x17C;e jest to tak zwany <strong>znak
+              nowej linii</strong>. Umieszczenie go w &#x142;a&#x144;cuchu znak&#xF3;w kt&#xF3;ry chcemy gdzie&#x15B;
+            wypisa&#x107;, spowoduje ze zostanie zamieniony na now&#x105; lini&#x119;. <strong>Umie&#x15B;&#x107; ten
+              znak w &#x15B;rodku s&#x142;owa &quot;Hello&quot; i zobacz co si&#x119; stanie po kompilacji i
+              uruchomieniu programu!</strong></li>
+          <li>Ka&#x17C;de wyra&#x17C;enie w j&#x119;zyku C++ nale&#x17C;y ko&#x144;czy&#x107;
+            <strong>&#x15B;rednikiem</strong> (<code>;</code>)</li>
+        </ul>
+      </li>
+      <li>
+        <p><code>return 0;</code> oznacza wyj&#x15B;cie z funkcji <code>main</code> i zwr&#xF3;cenie z niej
+          warto&#x15B;ci <code>0</code>. Domy&#x15B;lnie, je&#x15B;li <code>0</code> zostanie zwr&#xF3;cone z funkcji
+          <code>main</code>, oznacza to &#x17C;e program wykona&#x142; si&#x119; poprawnie.</p>
+      </li>
+    </ul>
+    <p><a href="01_wstep.html">Wr&#xF3;&#x107; do poprzedniej cz&#x119;&#x15B;ci</a> | Przejd&#x17A; do nast&#x119;pnej
+      cz&#x119;&#x15B;ci</p>
+    <footer>
+      <div class="icon-note">Icons made by <a
+          href="https://www.freepik.com/?__hstc=57440181.62de920952d43b5ea5ff0838a1446c52.1560614074398.1560614074398.1560614074398.1&amp;__hssc=57440181.4.1560614074398&amp;__hsfp=3655662182"
+          title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> are
+        licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+          target="_blank">CC 3.0 BY</a></div>
+      <div class="copyright-note">Autorskie media (obrazy, animacje, d&#x17A;wi&#x119;ki, etc.) udost&#x119;pniane pod
+        licencj&#x105; CC BY-NC 4.0.
+        <br>
+        Tekst oraz kod udost&#x119;pniany pod licencj&#x105; Apache 2.0</div>
+    </footer>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
