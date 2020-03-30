@@ -1,5 +1,7 @@
 # Kurs C++ #01 - Wstęp
 
+[Kliknij tutaj, żeby przejść do tej części kursu na YouTube]()
+
 ## Konspekt rozdziału
 
 1. Przedstawienie się
