@@ -84,3 +84,6 @@ Na moim kanale jest (dość stary, ale nadal w miarę aktualny) video-tutorial n
 
 https://www.youtube.com/watch?v=nLTV-GuDUPo
 
+## Dodatkowe materiały
+
+Lista zalecanych materiałów do nauki C++a: https://github.com/SteelPh0enix/KursCPP/wiki/Materialy-do-nauki
