@@ -5,10 +5,10 @@
 ## Konspekt rozdziału
 
 1. Przedstawienie się
-1. Dlaczego tworzę ten kurs?
-1. Dlaczego C++?
-1. Dla kogo jest przeznaczony ten kurs?
-1. Co będzie w tym kursie?
+1. Dlaczego tworzę ten kurs
+1. Dlaczego C+
+1. Dla kogo jest przeznaczony ten kurs
+1. Co będzie w tym kursie
 1. Przedstawienie sposobu prowadzenia
 1. Co będzie nam potrzebne?
 1. Wstępna konfiguracja środowiska i sprawdzenie jego działania
@@ -21,7 +21,7 @@ Z programowaniem mam do czynienia "od dzieciaka", zacząłem od kopiowania kodu 
 
 Aktualnie programuję głównie w C, C++ie i Pythonie. Mam za sobą w teorii jakieś 10 lat doświadczenia, w praktyce dopiero od 6-7 biorę to "na poważnie".
 
-### Dlaczego tworzę ten kurs?
+### Dlaczego tworzę ten kurs
 
 Z kilku powodów.
 
@@ -31,7 +31,7 @@ Po drugie, moim zdaniem brakuje kompletnego, aktualnego kursu nowoczesnego C++a.
 
 Po trzecie, duża ilość kursów wymienionych w powyższym punkcie ma również większe problemy niż nieaktualność - nieświadome demonstrowanie niezalecanych lub niebezpiecznych praktyk, które potem powodują że osoby uczące się z nich popełniają elementarne błędy w kodzie, o czym dowiadują się dopiero po dłuższym czasie spędzonym na nauce lub długotrwałej walce z nimi. Sam osobiście doświadczyłem takiego stadium nauki i mam teraz moralny obowiązek prowadzenia innych przez drogę, na której się z tego rodzaju "blokadą rozwoju" nie spotkają.
 
-### Dlaczego C++?
+### Dlaczego C++
 
 Ponieważ jest to jeden z moich ulubionych języków który bardzo lubię, głównie przez zakres "władzy" nad programem jaką oferuje, co jest jednocześnie jego ogromną zaletą ale również gigantyczną wadą.
 
@@ -39,7 +39,7 @@ Jako wstępne ostrzeżenie dla osoby która nie do końca wie w co się pakuje, 
 
 Jeśli nie masz cierpliwości i chcesz widzieć efekty twoich wysiłków szybko i łatwo, bez potrzeby znajomości szczegółów działania programu - sugeruję zacząć od prostych języków skryptowych pokroju Pythona albo JavaScriptu, które również są potężne ale jednocześnie zdecydowanie łatwiejsze do nauki.
 
-### Dla kogo jest przeznaczony ten kurs?
+### Dla kogo jest przeznaczony ten kurs
 
 Chciałbym powiedzieć że dla wszystkich, ale wiem że nie dam rady dogodzić całej publice ;)
 
@@ -51,7 +51,7 @@ Osobom które znają C++a i chcą się doszkolić z nowych standardów również
 
 Polecam ten kurs również ludziom którzy uczyli się ze źródeł typu wymienionego w poprzednim akapicie. Niżej znajdziecie link do źródeł które polecam i których nie polecam, jeśli do tej pory Twoim jedynym źródłem wiedzy na temat C++a było jedno z niezalecanych przeze mnie źródeł, to IMO warto sobie zrobić "poprawkę".
 
-### Co będzie w tym kursie?
+### Co będzie w tym kursie
 
 Zacznę oczywiście od absolutnych podstaw języka - zmienne, instrukcje warunkowe, pętle, operatory, funkcje, podstawowe elementy biblioteki standardowej z którymi będziemy pracować przez resztę kursu.
 
@@ -69,7 +69,7 @@ Główną część wiedzy będę przekazywał w formie video, na moim kanale [Yo
 
 Dodatki do kursu, kod źródłowy i zadania będę umieszczał w tym repozytorium, w folderze odpowiadającym części kursu.
 
-### Co będzie nam potrzebne?
+### Co będzie nam potrzebne
 
 Działający komputer i chęć do nauki. Oraz środowisko do programowania.
 
@@ -82,8 +82,8 @@ Zalecane przeze mnie środowiska to
 
 Na moim kanale jest (dość stary, ale nadal w miarę aktualny) video-tutorial na temat instalacji tych czterech środowisk.
 
-https://www.youtube.com/watch?v=nLTV-GuDUPo
+[https://www.youtube.com/watch?v=nLTV-GuDUPo](https://www.youtube.com/watch?v=nLTV-GuDUPo)
 
 ## Dodatkowe materiały
 
-Lista zalecanych materiałów do nauki C++a: https://github.com/SteelPh0enix/KursCPP/wiki/Materialy-do-nauki
+[Lista zalecanych materiałów do nauki C++a](https://github.com/SteelPh0enix/KursCPP/wiki/Materialy-do-nauki)
